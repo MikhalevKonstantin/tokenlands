@@ -6,32 +6,62 @@ import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:timelines/timelines.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class Phone extends StatefulWidget {
+  const Phone({Key? key}) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _PhoneState createState() => _PhoneState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _PhoneState extends State<Phone> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(1680, 1050),
+      designSize: Size(360, 640),
       builder: () => MaterialApp(
         home: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Color(0xffebeff5),
+            leading: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            centerTitle: true,
+            title: SvgPicture.asset(
+              'assets/svg_icons/token-lands-mark.svg',
+              height: 24,
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Buy packs',
+                  style: TextStyle(
+                    fontFamily: 'Montserra SemiBold',
+                    color: Color(0xff1d5be6),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    height: 1.71,
+                  ),
+                ),
+              ),
+            ],
+          ),
           body: SafeArea(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  appBar(),
                   info(),
+                  Container(
+                    height: 360,
+                    width: 1.sw,
+                    child: Image.asset(
+                      'assets/images/image_2t.png',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                   collection(),
                   roadmap(),
-                  howWork(),
-                  gameplay(),
-                  getReady(),
-                  bottomPanel(),
                 ],
               ),
             ),
@@ -42,99 +72,62 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-appBar() {
+info() {
   return Container(
-    color: Color(0xfffafbfc),
+    color: Color(0xff212429),
     width: 1.sw,
-    height: 96,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Row(
-          children: [
-            Container(
-              child: SvgPicture.asset(
-                'assets/svg_icons/token-lands-horizontal.svg',
+    height: 312.h,
+    child: Padding(
+      padding: EdgeInsets.only(left: 32.w, right: 32.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        //crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 0.8.sw,
+            child: AutoSizeText(
+              "own part of the unique world on the blockchain",
+              maxLines: 3,
+              style: TextStyle(
+                  fontFamily: 'Thedus',
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  height: 0.8,
+                  letterSpacing: -1),
+            ),
+          ),
+          Container(
+            height: 32.h,
+          ),
+          Container(
+            width: 0.8.sw,
+            child: AutoSizeText(
+              "5 continents divided into sectors allowing the player to receive income from all this",
+              maxLines: 3,
+              style: TextStyle(
+                fontFamily: 'Montserra Medium',
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                height: 1.71,
+                color: Color(0xffe0e0ff),
               ),
             ),
-            SizedBox(width: 0.028.sw),
-            Container(
-              child: TextButton(
-                onPressed: () {},
-                child: AutoSizeText(
-                  'Roadmap',
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(width: 0.028.sw),
-            Container(
-              child: TextButton(
-                onPressed: () {},
-                child: AutoSizeText(
-                  'Open packs',
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(width: 0.028.sw),
-            Container(
-              child: TextButton(
-                onPressed: () {},
-                child: AutoSizeText(
-                  'Craft',
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            SvgPicture.asset(
-              'assets/svg_icons/twitter.svg',
-            ),
-            SizedBox(width: 0.028.sw),
-            SvgPicture.asset(
-              'assets/svg_icons/telegram.svg',
-            ),
-            SizedBox(width: 0.028.sw),
-            SvgPicture.asset(
-              'assets/svg_icons/discord.svg',
-            ),
-            SizedBox(width: 0.028.sw),
-            SvgPicture.asset(
-              'assets/svg_icons/medium.svg',
-            ),
-            SizedBox(width: 0.028.sw),
-            Container(
-              color: Color(0xff1d5be6),
-              height: 48,
-              width: 0.079.sw,
-              child: Center(
-                child: AutoSizeText(
-                  'Buy packs',
+          ),
+          Container(
+            height: 24.h,
+          ),
+          Container(
+            color: Color(0xff1d5be6),
+            height: 48.h,
+            width: 165.w,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Get started',
                   style: TextStyle(
                     fontFamily: 'Montserra SemiBold',
                     color: Colors.white,
@@ -143,32 +136,16 @@ appBar() {
                     height: 1.75,
                   ),
                 ),
-              ),
+                SizedBox(width: 12.w),
+                SvgPicture.asset(
+                  'assets/svg_icons/arrow-right.svg',
+                  color: Colors.white,
+                )
+              ],
             ),
-          ],
-        )
-      ],
-    ),
-  );
-}
-
-info() {
-  return Container(
-    color: Color(0xff212429),
-    width: 1.sw,
-    height: 876.h,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Content1(),
-        Container(
-          width: 0.086.sw,
-        ),
-        Container(
-          width: 0.319.sw,
-          child: Image.asset('assets/images/image_2w.png'),
-        ),
-      ],
+          )
+        ],
+      ),
     ),
   );
 }
@@ -177,9 +154,9 @@ collection() {
   return Container(
     color: Color(0xfffafbfc),
     width: 1.sw,
-    height: 664.h,
+    height: 800.h,
     child: Column(
-      // crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextButton(
@@ -189,62 +166,96 @@ collection() {
             style: TextStyle(
               fontFamily: 'Montserra SemiBold',
               color: Color(0xff1d5be6),
-              fontSize: 13,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
               height: 1.23,
             ),
           ),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 12),
         Text(
-          'start your collection',
+          'start your',
+          maxLines: 1,
           style: TextStyle(
-              fontFamily: 'Thedus',
-              color: Color.fromRGBO(20, 16, 41, 0.8),
-              fontWeight: FontWeight.bold,
-              fontSize: 36,
-              height: 0.67,
-              letterSpacing: -1),
+            fontFamily: 'Thedus',
+            color: Color.fromRGBO(20, 16, 41, 0.8),
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            height: 0.67,
+            letterSpacing: -1,
+          ),
         ),
-        SizedBox(height: 48),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_4w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_4w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-          ],
-        ),
-        SizedBox(height: 48),
         Text(
-          'TokenLands cards come in 6 unique rarities',
+          'collection',
+          maxLines: 1,
           style: TextStyle(
-            fontFamily: 'Montserra Medium',
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            height: 1.75,
-            color: Color(0xff141029),
+            fontFamily: 'Thedus',
+            color: Color.fromRGBO(20, 16, 41, 0.8),
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            height: 0.67,
+            letterSpacing: -1,
           ),
         ),
         SizedBox(height: 24),
+        SingleChildScrollView(
+          child: SizedBox(
+            height: 500.h,
+            child: GridView.count(
+              shrinkWrap: false,
+              primary: false,
+              padding: EdgeInsets.only(left: 15.w, right: 15.w),
+              mainAxisSpacing: 16.w,
+              crossAxisCount: 2,
+              children: <Widget>[
+                Container(
+                    width: 0.38.sw,
+                    child: Image.asset('assets/images/image_3t.png')),
+                Container(
+                    width: 0.38.sw,
+                    child: Image.asset('assets/images/image_4t.png')),
+                Container(
+                    width: 0.38.sw,
+                    child: Image.asset('assets/images/image_4t.png')),
+                Container(
+                    width: 0.38.sw,
+                    child: Image.asset('assets/images/image_3t.png')),
+                Container(
+                    width: 0.38.sw,
+                    child: Image.asset('assets/images/image_3t.png')),
+                Container(
+                    width: 0.38.sw,
+                    child: Image.asset('assets/images/image_4t.png')),
+              ],
+            ),
+          ),
+        ),
+        //SizedBox(height: 24.h),
+        Text(
+          'TokenLands cards come in',
+          maxLines: 1,
+          style: TextStyle(
+            fontFamily: 'Montserra Medium',
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            height: 1.71,
+            color: Color(0xff141029),
+          ),
+        ),
+        Text(
+          '6 unique rarities',
+          maxLines: 1,
+          style: TextStyle(
+            fontFamily: 'Montserra Medium',
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            height: 1.71,
+            color: Color(0xff141029),
+          ),
+        ),
+        SizedBox(height: 24.h),
         GestureDetector(
           child: Container(
-            //width: 0.0964.sw,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
