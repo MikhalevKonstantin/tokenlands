@@ -20,21 +20,24 @@ class _MainScreenState extends State<MainScreen> {
       builder: () => MaterialApp(
         home: Scaffold(
           body: SafeArea(
-              child: SingleChildScrollView(
-            child: Column(
-              children: [
-                whiteLine(),
-                blackLine(),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  appBar(),
+                  info(),
+                  collection(),
+                  vision(),
+                ],
+              ),
             ),
-          )),
+          ),
         ),
       ),
     );
   }
 }
 
-whiteLine() {
+appBar() {
   return Container(
     color: Color(0xfffafbfc),
     width: 1.sw,
@@ -143,7 +146,8 @@ whiteLine() {
     ),
   );
 }
-blackLine() {
+
+info() {
   return Container(
     color: Color(0xff212429),
     width: 1.sw,
@@ -163,6 +167,86 @@ blackLine() {
     ),
   );
 }
+
+collection() {
+  return Container(
+    color: Color(0xfffafbfc),
+    width: 1.sw,
+    height: 664.h,
+    child: Column(
+      children: [
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            'brave new world',
+            style: TextStyle(
+              fontFamily: 'Montserra SemiBold',
+              color: Color(0xff1d5be6),
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              height: 1.23,
+            ),
+          ),
+        ),
+        Text(
+          'start your collection',
+          style: TextStyle(
+              fontFamily: 'Thedus',
+              color: Color.fromRGBO(20, 16, 41, 0.8),
+              fontWeight: FontWeight.bold,
+              fontSize: 36,
+              height: 0.67,
+              letterSpacing: -1),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 0.119.sw,
+                child: Image.asset('assets/images/image_3w.png')),
+            Container(
+                width: 0.119.sw,
+                child: Image.asset('assets/images/image_4w.png')),
+            Container(
+                width: 0.119.sw,
+                child: Image.asset('assets/images/image_3w.png')),
+            Container(
+                width: 0.119.sw,
+                child: Image.asset('assets/images/image_4w.png')),
+            Container(
+                width: 0.119.sw,
+                child: Image.asset('assets/images/image_3w.png')),
+            Container(
+                width: 0.119.sw,
+                child: Image.asset('assets/images/image_3w.png')),
+          ],
+        )
+      ],
+    ),
+  );
+}
+
+vision() {
+  return Container(
+    color: Color(0xfff5f7fa),
+    width: 1.sw,
+    height: 640.h,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Content1(),
+        Container(
+          width: 0.086.sw,
+        ),
+        Container(
+          width: 0.3.sw,
+          child: Image.asset('assets/images/image_2w.png'),
+        ),
+      ],
+    ),
+  );
+}
+
 Content1() {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
