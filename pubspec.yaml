@@ -38,6 +38,7 @@ dependencies:
   auto_size_text: ^3.0.0-nullsafety.0
   flutter_screenutil: ^5.0.0+2
   timelines: ^0.1.0
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -82,12 +83,15 @@ flutter:
     - family: Thedus
       fonts:
         - asset: fonts/FontsFree-Net-Thedus-WideLight.ttf
-    - family: Montserra Medium
+    - family: Montserrat Medium
       fonts:
         - asset: fonts/Montserrat-Medium.ttf
-    - family: Montserra SemiBold
+    - family: Montserrat SemiBold
       fonts:
             - asset: fonts/Montserrat-SemiBold.ttf
+    - family: Montserrat Bold
+      fonts:
+            - asset: fonts/Montserrat-Bold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
 

@@ -5,10 +5,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:timelines/timelines.dart';
+import 'package:tokenlands/theme/color_theme.dart';
+import 'package:tokenlands/theme/text_theme.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
-
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -24,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  appBar(),
+                  topPanel(),
                   info(),
                   collection(),
                   roadmap(),
@@ -42,9 +42,9 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-appBar() {
+topPanel() {
   return Container(
-    color: Color(0xfffafbfc),
+    color: ColorPalette.card_l,
     width: 1.sw,
     height: 96,
     child: Row(
@@ -53,41 +53,31 @@ appBar() {
         Row(
           children: [
             Container(
+              width: 0.12.sw,
               child: SvgPicture.asset(
                 'assets/svg_icons/token-lands-horizontal.svg',
               ),
             ),
             SizedBox(width: 0.028.sw),
             Container(
+              //width: 0.055.sw,
               child: TextButton(
                 onPressed: () {},
                 child: AutoSizeText(
                   'Roadmap',
                   maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
+                  style: TextThemes.hedline_6,
                 ),
               ),
             ),
             SizedBox(width: 0.028.sw),
             Container(
+              //width: 0.0589.sw,
               child: TextButton(
                 onPressed: () {},
                 child: AutoSizeText(
                   'Open packs',
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
+                  style: TextThemes.hedline_6,
                 ),
               ),
             ),
@@ -98,13 +88,7 @@ appBar() {
                 child: AutoSizeText(
                   'Craft',
                   maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
+                  style: TextThemes.hedline_6,
                 ),
               ),
             ),
@@ -130,18 +114,12 @@ appBar() {
             SizedBox(width: 0.028.sw),
             Container(
               color: Color(0xff1d5be6),
-              height: 48,
+              height: 48.h,
               width: 0.079.sw,
               child: Center(
                 child: AutoSizeText(
                   'Buy packs',
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
+                  style: TextThemes.button_1,
                 ),
               ),
             ),
@@ -154,7 +132,7 @@ appBar() {
 
 info() {
   return Container(
-    color: Color(0xff212429),
+    color: ColorPalette.bg_d_n,
     width: 1.sw,
     height: 876.h,
     child: Row(
@@ -175,7 +153,7 @@ info() {
 
 collection() {
   return Container(
-    color: Color(0xfffafbfc),
+    color: ColorPalette.card_l,
     width: 1.sw,
     height: 664.h,
     child: Column(
@@ -184,28 +162,12 @@ collection() {
       children: [
         TextButton(
           onPressed: () {},
-          child: Text(
-            'brave new world',
-            style: TextStyle(
-              fontFamily: 'Montserra SemiBold',
-              color: Color(0xff1d5be6),
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              height: 1.23,
-            ),
-          ),
+          child: Text('brave new world',
+              style:
+                  TextThemes.caption_3.copyWith(color: ColorPalette.primary)),
         ),
         SizedBox(height: 20),
-        Text(
-          'start your collection',
-          style: TextStyle(
-              fontFamily: 'Thedus',
-              color: Color.fromRGBO(20, 16, 41, 0.8),
-              fontWeight: FontWeight.bold,
-              fontSize: 36,
-              height: 0.67,
-              letterSpacing: -1),
-        ),
+        Text('start your collection', style: TextThemes.hedline_2),
         SizedBox(height: 48),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -233,13 +195,7 @@ collection() {
         SizedBox(height: 48),
         Text(
           'TokenLands cards come in 6 unique rarities',
-          style: TextStyle(
-            fontFamily: 'Montserra Medium',
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            height: 1.75,
-            color: Color(0xff141029),
-          ),
+          style: TextThemes.body_1,
         ),
         SizedBox(height: 24),
         GestureDetector(
@@ -250,16 +206,12 @@ collection() {
               children: [
                 AutoSizeText(
                   'Start collection',
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color(0xff1d5be6),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
+                  style: TextThemes.button_1.copyWith(
+                    color: ColorPalette.primary,
                   ),
                 ),
                 SizedBox(width: 12),
-                SvgPicture.asset('assets/svg_icons/arrow-right.svg')
+                SvgPicture.asset('assets/svg_icons/arrow-right.svg'),
               ],
             ),
           ),
@@ -271,7 +223,7 @@ collection() {
 
 roadmap() {
   return Container(
-    color: Color(0xfff5f7fa),
+    color: ColorPalette.bg_l,
     width: 1.sw,
     height: 640.h,
     child: Row(
@@ -280,7 +232,6 @@ roadmap() {
           child: Container(
             width: 15.0,
             height: 15.0,
-            color: Colors.blue,
           ),
         ),
       ],
@@ -290,7 +241,7 @@ roadmap() {
 
 howWork() {
   return Container(
-    color: Color(0xfffafbfc),
+    color: ColorPalette.card_l,
     width: 1.sw,
     height: 580.h,
     child: Row(
@@ -313,13 +264,8 @@ howWork() {
                 child: Text(
                   "how does it work?",
                   maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color(0xff1d5be6),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    height: 1.23,
-                  ),
+                  style: TextThemes.hedline_9
+                      .copyWith(color: ColorPalette.primary),
                 ),
               ),
             ),
@@ -328,32 +274,16 @@ howWork() {
             ),
             Container(
               width: 0.167.sw,
-              child: AutoSizeText(
-                'OWN A PART OF THE COLONY',
-                maxLines: 2,
-                style: TextStyle(
-                    fontFamily: 'Thedus',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 36,
-                    height: 0.67,
-                    letterSpacing: -1),
-              ),
+              child: AutoSizeText('OWN A PART \nOF THE COLONY',
+                  maxLines: 2, style: TextThemes.hedline_2),
             ),
             Container(height: 32.h),
             Container(
               width: 0.1857.sw,
               child: AutoSizeText(
-                "Ownership cards match 1:1 with a unique piece of equipment or vehicle on our colony map. The more you own, the higher on the colony leaderboard you will rank. You can find ownership cards inside of supply crates for Mission Two.",
-                maxLines: 7,
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  height: 1.75,
-                  color: Color(0xff141029),
-                ),
-              ),
+                  "Ownership cards match 1:1 with a unique piece of equipment or vehicle on our colony map. The more you own, the higher on the colony leaderboard you will rank. You can find ownership cards inside of supply crates for Mission Two.",
+                  maxLines: 7,
+                  style: TextThemes.body_1),
             ),
             Container(height: 24.h),
             GestureDetector(
@@ -361,16 +291,9 @@ howWork() {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Open packs',
-                      style: TextStyle(
-                        fontFamily: 'Montserra SemiBold',
-                        color: Color(0xff1d5be6),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        height: 1.75,
-                      ),
-                    ),
+                    Text('Open packs',
+                        style: TextThemes.button_1
+                            .copyWith(color: ColorPalette.primary)),
                     SizedBox(width: 12),
                     SvgPicture.asset('assets/svg_icons/arrow-right.svg')
                   ],
@@ -386,7 +309,7 @@ howWork() {
 
 gameplay() {
   return Container(
-    color: Color(0xfff5f7fa),
+    color: ColorPalette.bg_l,
     width: 1.sw,
     height: 580.h,
     child: Row(
@@ -399,16 +322,9 @@ gameplay() {
             GestureDetector(
               onTap: () {},
               child: Container(
-                child: Text(
-                  "gameplay",
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color(0xff1d5be6),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    height: 1.23,
-                  ),
-                ),
+                child: Text("gameplay",
+                    style: TextThemes.hedline_9
+                        .copyWith(color: ColorPalette.primary)),
               ),
             ),
             Container(
@@ -417,15 +333,9 @@ gameplay() {
             Container(
               width: 0.1857.sw,
               child: AutoSizeText(
-                '3 POSSIBLE CRAFTING OUTCOMES',
+                '3 POSSIBLE \nCRAFTING\nOUTCOMES',
                 maxLines: 3,
-                style: TextStyle(
-                    fontFamily: 'Thedus',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 36,
-                    height: 0.67,
-                    letterSpacing: -1),
+                style: TextThemes.hedline_2,
               ),
             ),
             Container(height: 32.h),
@@ -434,13 +344,7 @@ gameplay() {
               child: AutoSizeText(
                 "There are 3 possible outcomes for each crafting tier: A 79% chance of success, a 1% chance of critical success, and a 20% chance of failure. Critical success is where you receive 2 cards of the higher rarity.",
                 maxLines: 6,
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  height: 1.75,
-                  color: Color(0xff141029),
-                ),
+                style: TextThemes.body_1,
               ),
             ),
             Container(height: 24.h),
@@ -449,16 +353,9 @@ gameplay() {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Learn more',
-                      style: TextStyle(
-                        fontFamily: 'Montserra SemiBold',
-                        color: Color(0xff1d5be6),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        height: 1.75,
-                      ),
-                    ),
+                    Text('Learn more',
+                        style: TextThemes.button_1
+                            .copyWith(color: ColorPalette.primary)),
                     SizedBox(width: 12),
                     SvgPicture.asset('assets/svg_icons/arrow-right.svg')
                   ],
@@ -481,7 +378,7 @@ gameplay() {
 
 getReady() {
   return Container(
-    color: Color(0xfffafbfc),
+    color: ColorPalette.card_l,
     width: 1.sw,
     height: 580.h,
     child: Row(
@@ -501,17 +398,10 @@ getReady() {
             GestureDetector(
               onTap: () {},
               child: Container(
-                child: Text(
-                  "get ready",
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Color(0xff1d5be6),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    height: 1.23,
-                  ),
-                ),
+                child: Text("get ready",
+                    maxLines: 1,
+                    style: TextThemes.hedline_9
+                        .copyWith(color: ColorPalette.primary)),
               ),
             ),
             Container(
@@ -520,31 +410,18 @@ getReady() {
             Container(
               width: 0.167.sw,
               child: AutoSizeText(
-                'PURCHASE SUPPLY CRATES',
+                'PURCHASE \nSUPPLY CRATES',
                 maxLines: 2,
-                style: TextStyle(
-                    fontFamily: 'Thedus',
-                    color: Color.fromRGBO(20, 16, 41, 0.8),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 36,
-                    height: 0.67,
-                    letterSpacing: -1),
+                style: TextThemes.hedline_2,
               ),
             ),
             Container(height: 32.h),
             Container(
               width: 0.1857.sw,
               child: AutoSizeText(
-                "Supply crates are NFT packs and contain digital trading cards. Cards feature different vehicles, equipment, buildings, and astronauts that are needed for the colony.",
-                maxLines: 5,
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  height: 1.75,
-                  color: Color(0xff141029),
-                ),
-              ),
+                  "Supply crates are NFT packs and contain digital trading cards. Cards feature different vehicles, equipment, buildings, and astronauts that are needed for the colony.",
+                  maxLines: 5,
+                  style: TextThemes.body_1),
             ),
             Container(height: 24.h),
             GestureDetector(
@@ -554,12 +431,8 @@ getReady() {
                   children: [
                     Text(
                       'Try now',
-                      style: TextStyle(
-                        fontFamily: 'Montserra SemiBold',
-                        color: Color(0xff1d5be6),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        height: 1.75,
+                      style: TextThemes.button_1.copyWith(
+                        color: ColorPalette.primary,
                       ),
                     ),
                     SizedBox(width: 12),
@@ -577,13 +450,13 @@ getReady() {
 
 bottomPanel() {
   return Container(
-    color: Color(0xfff5f7fa),
+    color: ColorPalette.bg_l,
     width: 1.sw,
     height: 244.h,
     child: Row(
       //crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(width: 180),
+        SizedBox(width: 0.1.sw),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -598,45 +471,18 @@ bottomPanel() {
               child: Row(
                 children: [
                   SvgPicture.asset('assets/svg_icons/message.svg'),
-                  Text(
-                    'English (United States)',
-                    style: TextStyle(
-                      fontFamily: 'Montserra Medium',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      height: 1.71,
-                      color: Color.fromRGBO(20, 16, 41, 0.6),
-                    ),
-                  ),
+                  Text('English (United States)', style: TextThemes.body_2),
                 ],
               ),
             ),
             SizedBox(
               height: 4,
             ),
-            Text(
-              'made by roobinium.io',
-              style: TextStyle(
-                fontFamily: 'Montserra Medium',
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                height: 1.71,
-                color: Color.fromRGBO(20, 16, 41, 0.6),
-              ),
-            ),
+            Text('made by roobinium.io', style: TextThemes.body_2),
             SizedBox(
               height: 4,
             ),
-            Text(
-              '© 2021 TokenLands',
-              style: TextStyle(
-                fontFamily: 'Montserra Medium',
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                height: 1.71,
-                color: Color.fromRGBO(20, 16, 41, 0.6),
-              ),
-            ),
+            Text('© 2021 TokenLands', style: TextThemes.body_2),
           ],
         ),
         Expanded(
@@ -649,14 +495,7 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'LEARN',
-                style: TextStyle(
-                  fontFamily: 'Montserra SemiBold',
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  height: 1.23,
-                  letterSpacing: 1,
-                  color: Color.fromRGBO(20, 16, 41, 0.8),
-                ),
+                style: TextThemes.caption_3,
               ),
             ),
             SizedBox(height: 22),
@@ -664,13 +503,7 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'Roadmap',
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  height: 1.71,
-                  color: Color.fromRGBO(20, 16, 41, 0.6),
-                ),
+                style: TextThemes.body_2,
               ),
             ),
             SizedBox(height: 4),
@@ -678,13 +511,7 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'Open packs',
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  height: 1.71,
-                  color: Color.fromRGBO(20, 16, 41, 0.6),
-                ),
+                style: TextThemes.body_2,
               ),
             ),
             SizedBox(
@@ -694,19 +521,13 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'Craft',
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  height: 1.71,
-                  color: Color.fromRGBO(20, 16, 41, 0.6),
-                ),
+                style: TextThemes.body_2,
               ),
             ),
           ],
         ),
         SizedBox(
-          width: 136,
+          width: 0.081.sw,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -718,14 +539,7 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'FOLLOW',
-                style: TextStyle(
-                  fontFamily: 'Montserra SemiBold',
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  height: 1.23,
-                  letterSpacing: 1,
-                  color: Color.fromRGBO(20, 16, 41, 0.8),
-                ),
+                style: TextThemes.caption_3,
               ),
             ),
             SizedBox(height: 22),
@@ -733,13 +547,7 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'Twitter',
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  height: 1.71,
-                  color: Color.fromRGBO(20, 16, 41, 0.6),
-                ),
+                style: TextThemes.body_2,
               ),
             ),
             SizedBox(height: 4),
@@ -747,13 +555,7 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'Telegram',
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  height: 1.71,
-                  color: Color.fromRGBO(20, 16, 41, 0.6),
-                ),
+                style: TextThemes.body_2,
               ),
             ),
             SizedBox(
@@ -763,31 +565,19 @@ bottomPanel() {
               onPressed: () {},
               child: Text(
                 'Discord',
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  height: 1.71,
-                  color: Color.fromRGBO(20, 16, 41, 0.6),
-                ),
+                style: TextThemes.body_2,
               ),
             ),
             TextButton(
               onPressed: () {},
               child: Text(
                 'Medium',
-                style: TextStyle(
-                  fontFamily: 'Montserra Medium',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  height: 1.71,
-                  color: Color.fromRGBO(20, 16, 41, 0.6),
-                ),
+                style: TextThemes.body_2,
               ),
             ),
           ],
         ),
-        SizedBox(width: 180),
+        SizedBox(width: 0.1.sw),
       ],
     ),
   );
@@ -798,18 +588,21 @@ Content1() {
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
+      /// WORLD bly text and autoSize
       Container(
-        width: 0.3.sw,
-        child: AutoSizeText(
-          "own part of the unique world on the blockchain",
-          maxLines: 4,
-          style: TextStyle(
-              fontFamily: 'Thedus',
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 72,
-              height: 0.78,
-              letterSpacing: -2),
+        //width: 0.3.sw,
+        child: Text.rich(
+          TextSpan(
+            text: "own part of \nthe unique ",
+            children: [
+              TextSpan(
+                  text: '\nworld ',
+                  style: TextThemes.hedline_0
+                      .copyWith(color: ColorPalette.primary)),
+              TextSpan(text: 'on the \nblockchain'),
+            ],
+            style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
+          ),
         ),
       ),
       Container(height: 72.h),
@@ -818,13 +611,7 @@ Content1() {
         child: AutoSizeText(
           "5 continents divided into sectors allowing the player to receive income from all this",
           maxLines: 2,
-          style: TextStyle(
-            fontFamily: 'Montserra Medium',
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
-            height: 1.67,
-            color: Color(0xffe0e0ff),
-          ),
+          style: TextThemes.subhead_1.copyWith(color: ColorPalette.text_d_60),
         ),
       ),
       Container(height: 48.h),
@@ -838,18 +625,12 @@ Content1() {
           children: [
             Text(
               'Get started',
-              style: TextStyle(
-                  fontFamily: 'Montserra SemiBold',
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  height: 1.33,
-                  letterSpacing: -0.4),
+              style: TextThemes.button_2,
             ),
             SizedBox(width: 20.w),
             SvgPicture.asset(
               'assets/svg_icons/arrow-right.svg',
-              color: Colors.white,
+              color: ColorPalette.white,
             )
           ],
         ),
