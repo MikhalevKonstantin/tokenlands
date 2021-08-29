@@ -543,6 +543,9 @@ class _RoadMapState extends State<RoadMap> {
                                   height: 1.33, fontFamily: 'SpaceMono Bold'),
                             ),
                           ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       color: index == 2
                           ? ColorPalette.secondary
@@ -583,6 +586,9 @@ class _RoadMapState extends State<RoadMap> {
                                   height: 1.33, fontFamily: 'SpaceMono Bold'),
                             ),
                           ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       color: index == 3
                           ? ColorPalette.secondary
@@ -623,6 +629,9 @@ class _RoadMapState extends State<RoadMap> {
                                   height: 1.33, fontFamily: 'SpaceMono Bold'),
                             ),
                           ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       color: index == 4
                           ? ColorPalette.secondary
