@@ -92,7 +92,11 @@ flutter:
     - family: Montserrat Bold
       fonts:
             - asset: fonts/Montserrat-Bold.ttf
+    - family: SpaceMono Bold
+      fonts:
+            - asset: fonts/SpaceMono-Bold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
+
   #         style: italic
 
   #   - family: Trajan Pro

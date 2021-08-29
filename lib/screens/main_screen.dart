@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'dart:ui';
@@ -7,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:timelines/timelines.dart';
 import 'package:tokenlands/theme/color_theme.dart';
 import 'package:tokenlands/theme/text_theme.dart';
+
+int index = 1;
 
 class MainScreen extends StatefulWidget {
   @override
@@ -27,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
                   topPanel(),
                   info(),
                   collection(),
-                  roadmap(),
+                  RoadMap(),
                   howWork(),
                   gameplay(),
                   getReady(),
@@ -41,6 +44,8 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+get() {}
 
 topPanel() {
   return Container(
@@ -221,23 +226,602 @@ collection() {
   );
 }
 
-roadmap() {
-  return Container(
-    color: ColorPalette.bg_l,
-    width: 1.sw,
-    height: 640.h,
-    child: Row(
-      children: [
-        ContainerIndicator(
-          child: Container(
-            width: 15.0,
-            height: 15.0,
+switchWithString() {
+  switch (index) {
+    case 1:
+      return Padding(
+        padding: const EdgeInsets.only(top: 40, left: 40),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: ColorPalette.primary,
+                child: SvgPicture.asset('assets/svg_icons/bolt.svg'),
+              ),
+              SizedBox(height: 30),
+              Text(
+                'Q1 2019',
+                maxLines: 1,
+                style: TextThemes.hedline_4
+                    .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
+              ),
+              SizedBox(height: 15),
+              Text(
+                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                style: TextThemes.body_2,
+              ),
+            ],
           ),
         ),
-      ],
-    ),
-  );
+      );
+    case 2:
+      return Padding(
+        padding: const EdgeInsets.only(top: 40, left: 40),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: ColorPalette.primary,
+                child: SvgPicture.asset('assets/svg_icons/pending.svg'),
+              ),
+              SizedBox(height: 30),
+              Text(
+                'Q2 2019',
+                maxLines: 1,
+                style: TextThemes.hedline_4
+                    .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
+              ),
+              SizedBox(height: 15),
+              Text(
+                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                style: TextThemes.body_2,
+              ),
+            ],
+          ),
+        ),
+      );
+
+    case 3:
+      return Padding(
+        padding: const EdgeInsets.only(top: 40, left: 40),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: ColorPalette.primary,
+                child: SvgPicture.asset('assets/svg_icons/feature.svg'),
+              ),
+              SizedBox(height: 30),
+              Text(
+                'Q3 2019',
+                maxLines: 1,
+                style: TextThemes.hedline_4
+                    .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
+              ),
+              SizedBox(height: 15),
+              Text(
+                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                style: TextThemes.body_2,
+              ),
+            ],
+          ),
+        ),
+      );
+
+    case 4:
+      return Padding(
+        padding: const EdgeInsets.only(top: 40, left: 40),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                color: ColorPalette.primary,
+                child: SvgPicture.asset('assets/svg_icons/view.svg'),
+              ),
+              SizedBox(height: 30),
+              Text(
+                'Q4 2019',
+                maxLines: 1,
+                style: TextThemes.hedline_4
+                    .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
+              ),
+              SizedBox(height: 15),
+              Text(
+                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                style: TextThemes.body_2,
+              ),
+            ],
+          ),
+        ),
+      );
+    default:
+      print('Number Not Found');
+  }
 }
+
+class RoadMap extends StatefulWidget {
+  const RoadMap({Key? key}) : super(key: key);
+
+  @override
+  _RoadMapState createState() => _RoadMapState();
+}
+
+class _RoadMapState extends State<RoadMap> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: ColorPalette.bg_l,
+      width: 1.sw,
+      height: 650.h,
+      child: Column(
+        //crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 0.11.sw),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    child: Text(
+                      "roadmap",
+                      maxLines: 1,
+                      style: TextThemes.hedline_9
+                          .copyWith(color: ColorPalette.primary),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 20.h,
+                ),
+                Container(
+                  width: 0.167.sw,
+                  child: AutoSizeText('our ultimate \nvision',
+                      maxLines: 2, style: TextThemes.hedline_2),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            color: ColorPalette.white,
+            width: 350,
+            height: 400,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              //mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                switchWithString(),
+                Expanded(child: Container()),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (index == 3 || index == 2 || index == 4) {
+                              index = index - 1;
+                            } else if (index == 1) {
+                              index = 4;
+                            }
+                            ;
+                          });
+                        },
+                        child: Container(
+                          height: 48,
+                          width: 48,
+                          color: ColorPalette.text_l_2,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg_icons/arrow-left.svg',
+                                color: ColorPalette.text_l_60,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (index == 3 || index == 2 || index == 1) {
+                              index = index + 1;
+                            } else if (index == 4) {
+                              index = 1;
+                            }
+                            ;
+                          });
+                        },
+                        child: Container(
+                          color: ColorPalette.text_l_2,
+                          width: 115,
+                          height: 48,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Next',
+                                style: TextThemes.hedline_7,
+                              ),
+                              SizedBox(width: 12),
+                              SvgPicture.asset(
+                                'assets/svg_icons/arrow-right1.svg',
+                                color: ColorPalette.text_l_60,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                color: ColorPalette.primary,
+                width: 0.1357.sw,
+                height: 5,
+              ),
+              Padding(
+                padding: index == 1
+                    ? EdgeInsets.only(bottom: 8)
+                    : EdgeInsets.only(bottom: 30),
+                child: Column(
+                  //crossAxisAlignment: CrossAxisAlignment.start,
+
+                  children: [
+                    index == 1
+                        ? Container()
+                        : Container(
+                            child: Text(
+                              'Q1 2019',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      color: index == 1
+                          ? ColorPalette.secondary
+                          : ColorPalette.primary,
+                      child: IconButton(
+                        color: ColorPalette.primary,
+                        onPressed: () {
+                          setState(() {
+                            index = 1;
+                          });
+                        },
+                        icon: index == 1
+                            ? Container()
+                            : SvgPicture.asset('assets/svg_icons/bolt.svg'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                color: ColorPalette.primary,
+                width: 0.1357.sw,
+                height: 5,
+              ),
+              Padding(
+                padding: index == 2
+                    ? EdgeInsets.only(bottom: 8)
+                    : EdgeInsets.only(bottom: 30),
+                child: Column(
+                  children: [
+                    index == 2
+                        ? Container()
+                        : Container(
+                            child: Text(
+                              'Q2 2019',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                    Container(
+                      color: index == 2
+                          ? ColorPalette.secondary
+                          : ColorPalette.primary,
+                      child: IconButton(
+                        color: ColorPalette.primary,
+                        onPressed: () {
+                          setState(() {
+                            index = 2;
+                          });
+                        },
+                        icon: index == 2
+                            ? Container()
+                            : SvgPicture.asset('assets/svg_icons/pending.svg'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                color: ColorPalette.primary,
+                width: 0.1357.sw,
+                height: 5,
+              ),
+              Padding(
+                padding: index == 3
+                    ? EdgeInsets.only(bottom: 8)
+                    : EdgeInsets.only(bottom: 30),
+                child: Column(
+                  children: [
+                    index == 3
+                        ? Container()
+                        : Container(
+                            child: Text(
+                              'Q3 2019',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                    Container(
+                      color: index == 3
+                          ? ColorPalette.secondary
+                          : ColorPalette.primary,
+                      child: IconButton(
+                        color: ColorPalette.primary,
+                        onPressed: () {
+                          setState(() {
+                            index = 3;
+                          });
+                        },
+                        icon: index == 3
+                            ? Container()
+                            : SvgPicture.asset('assets/svg_icons/feature.svg'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                color: ColorPalette.primary,
+                width: 0.1357.sw,
+                height: 5,
+              ),
+              Padding(
+                padding: index == 4
+                    ? EdgeInsets.only(bottom: 8)
+                    : EdgeInsets.only(bottom: 30),
+                child: Column(
+                  children: [
+                    index == 4
+                        ? Container()
+                        : Container(
+                            child: Text(
+                              'Q4 2019',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                    Container(
+                      color: index == 4
+                          ? ColorPalette.secondary
+                          : ColorPalette.primary,
+                      child: IconButton(
+                        color: ColorPalette.primary,
+                        onPressed: () {
+                          setState(() {
+                            index = 4;
+                          });
+                        },
+                        icon: index == 4
+                            ? Container()
+                            : SvgPicture.asset('assets/svg_icons/view.svg'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                color: ColorPalette.primary,
+                width: 0.1357.sw,
+                height: 5,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//
+// roadmap() {
+//   return Container(
+//     color: ColorPalette.bg_l,
+//     width: 1.sw,
+//     height: 640.h,
+//     child: Column(
+//       children: [
+//         Padding(
+//           padding: EdgeInsets.only(left: 0.11.sw),
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               GestureDetector(
+//                 onTap: () {},
+//                 child: Container(
+//                   child: Text(
+//                     "roadmap",
+//                     maxLines: 1,
+//                     style: TextThemes.hedline_9
+//                         .copyWith(color: ColorPalette.primary),
+//                   ),
+//                 ),
+//               ),
+//               Container(
+//                 height: 20.h,
+//               ),
+//               Container(
+//                 width: 0.167.sw,
+//                 child: AutoSizeText('our ultimate \nvision',
+//                     maxLines: 2, style: TextThemes.hedline_2),
+//               ),
+//             ],
+//           ),
+//         ),
+//         Container(
+//           color: Colors.white,
+//           width: 350,
+//           height: 350,
+//         ),
+//         SizedBox(
+//           height: 80,
+//         ),
+//         Row(
+//           //crossAxisAlignment: CrossAxisAlignment.center,
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Container(
+//               color: ColorPalette.primary,
+//               width: 0.1357.sw,
+//               height: 5,
+//             ),
+//             Column(
+//               children: [
+//                 index == 1
+//                     ? Container()
+//                     : Container(
+//                         child: Text(
+//                           'Q1 2019',
+//                           maxLines: 1,
+//                           style: TextThemes.hedline_4.copyWith(
+//                               height: 1.33, fontFamily: 'SpaceMono Bold'),
+//                         ),
+//                       ),
+//                 Container(
+//                   color: ColorPalette.primary,
+//                   child: IconButton(
+//                     color: ColorPalette.primary,
+//                     onPressed: () {
+//                     },
+//                     icon: SvgPicture.asset('assets/svg_icons/bolt.svg'),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             Container(
+//               color: ColorPalette.primary,
+//               width: 0.1357.sw,
+//               height: 5,
+//             ),
+//             Column(
+//               children: [
+//                 index == 2
+//                     ? Container()
+//                     : Container(
+//                         child: Text(
+//                           'Q2 2019',
+//                           maxLines: 1,
+//                           style: TextThemes.hedline_4.copyWith(
+//                               height: 1.33, fontFamily: 'SpaceMono Bold'),
+//                         ),
+//                       ),
+//                 Container(
+//                   color: ColorPalette.primary,
+//                   child: IconButton(
+//                     color: ColorPalette.primary,
+//                     onPressed: () {},
+//                     icon: SvgPicture.asset('assets/svg_icons/pending.svg'),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             Container(
+//               color: ColorPalette.primary,
+//               width: 0.1357.sw,
+//               height: 5,
+//             ),
+//             Column(
+//               children: [
+//                 index == 3
+//                     ? Container()
+//                     : Container(
+//                         child: Text(
+//                           'Q3 2019',
+//                           maxLines: 1,
+//                           style: TextThemes.hedline_4.copyWith(
+//                               height: 1.33, fontFamily: 'SpaceMono Bold'),
+//                         ),
+//                       ),
+//                 Container(
+//                   color: ColorPalette.primary,
+//                   child: IconButton(
+//                     color: ColorPalette.primary,
+//                     onPressed: () {},
+//                     icon: SvgPicture.asset('assets/svg_icons/feature.svg'),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             Container(
+//               color: ColorPalette.primary,
+//               width: 0.1357.sw,
+//               height: 5,
+//             ),
+//             Column(
+//               children: [
+//                 index == 4
+//                     ? Container()
+//                     : Container(
+//                         child: Text(
+//                           'Q4 2019',
+//                           maxLines: 1,
+//                           style: TextThemes.hedline_4.copyWith(
+//                               height: 1.33, fontFamily: 'SpaceMono Bold'),
+//                         ),
+//                       ),
+//                 Container(
+//                   color: ColorPalette.primary,
+//                   child: IconButton(
+//                     color: ColorPalette.primary,
+//                     onPressed: () {},
+//                     icon: SvgPicture.asset('assets/svg_icons/view.svg'),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             Container(
+//               color: ColorPalette.primary,
+//               width: 0.1357.sw,
+//               height: 5,
+//             ),
+//           ],
+//         ),
+//       ],
+//     ),
+//   );
+// }
 
 howWork() {
   return Container(
@@ -638,17 +1222,3 @@ Content1() {
     ],
   );
 }
-//
-// _hi () {
-//   Text(
-//       'world',
-//       maxLines: 4,
-//       style: TextStyle(
-//       fontFamily: 'Thedus',
-//       color: Color(0xff1d5be6),
-//       fontWeight: FontWeight.bold,
-//       fontSize: 72,
-//       height: 0.78,
-//       letterSpacing: -2),
-//   );
-// }
