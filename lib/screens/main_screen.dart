@@ -55,17 +55,17 @@ topPanel() {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Row(
+        Wrap(
           children: [
             Container(
-              width: 0.12.sw,
+              // width: 0.12.sw,
               child: SvgPicture.asset(
                 'assets/svg_icons/token-lands-horizontal.svg',
               ),
             ),
             SizedBox(width: 0.028.sw),
             Container(
-              //width: 0.055.sw,
+              // width: 0.048.sw,
               child: TextButton(
                 onPressed: () {},
                 child: AutoSizeText(
@@ -77,17 +77,19 @@ topPanel() {
             ),
             SizedBox(width: 0.028.sw),
             Container(
-              //width: 0.0589.sw,
+              // width: 0.0589.sw,
               child: TextButton(
                 onPressed: () {},
                 child: AutoSizeText(
                   'Open packs',
+                  maxLines: 1,
                   style: TextThemes.hedline_6,
                 ),
               ),
             ),
             SizedBox(width: 0.028.sw),
             Container(
+              // width: 0.024.sw,
               child: TextButton(
                 onPressed: () {},
                 child: AutoSizeText(
@@ -357,7 +359,7 @@ class _RoadMapState extends State<RoadMap> {
     return Container(
       color: ColorPalette.bg_l,
       width: 1.sw,
-      height: 650.h,
+      height: 650,
       child: Column(
         //crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -473,190 +475,196 @@ class _RoadMapState extends State<RoadMap> {
           SizedBox(
             height: 20,
           ),
-          Row(
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                color: ColorPalette.primary,
-                width: 0.1357.sw,
-                height: 5,
-              ),
-              Padding(
-                padding: index == 1
-                    ? EdgeInsets.only(bottom: 8)
-                    : EdgeInsets.only(bottom: 30),
-                child: Column(
-                  //crossAxisAlignment: CrossAxisAlignment.start,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  color: ColorPalette.primary,
+                  width: 0.1357.sw,
+                  height: 5,
+                ),
+                Padding(
+                  padding: index == 1
+                      ? EdgeInsets.only(bottom: 8)
+                      : EdgeInsets.only(bottom: 30),
+                  child: Column(
+                    //crossAxisAlignment: CrossAxisAlignment.start,
 
-                  children: [
-                    index == 1
-                        ? Container()
-                        : Container(
-                            child: Text(
-                              'Q1 2019',
-                              maxLines: 1,
-                              style: TextThemes.hedline_4.copyWith(
-                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                    children: [
+                      index == 1
+                          ? Container()
+                          : Container(
+                              // width: ,
+                              child: AutoSizeText(
+                                'Q1 2019',
+                                maxLines: 1,
+                                style: TextThemes.hedline_4.copyWith(
+                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
+                              ),
                             ),
-                          ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      color: index == 1
-                          ? ColorPalette.secondary
-                          : ColorPalette.primary,
-                      child: IconButton(
-                        color: ColorPalette.primary,
-                        onPressed: () {
-                          setState(() {
-                            index = 1;
-                          });
-                        },
-                        icon: index == 1
-                            ? Container()
-                            : SvgPicture.asset('assets/svg_icons/bolt.svg'),
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
+                      Container(
+                        color: index == 1
+                            ? ColorPalette.secondary
+                            : ColorPalette.primary,
+                        child: IconButton(
+                          color: ColorPalette.primary,
+                          onPressed: () {
+                            setState(() {
+                              index = 1;
+                            });
+                          },
+                          icon: index == 1
+                              ? Container()
+                              : SvgPicture.asset('assets/svg_icons/bolt.svg'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                color: ColorPalette.primary,
-                width: 0.1357.sw,
-                height: 5,
-              ),
-              Padding(
-                padding: index == 2
-                    ? EdgeInsets.only(bottom: 8)
-                    : EdgeInsets.only(bottom: 30),
-                child: Column(
-                  children: [
-                    index == 2
-                        ? Container()
-                        : Container(
-                            child: Text(
-                              'Q2 2019',
-                              maxLines: 1,
-                              style: TextThemes.hedline_4.copyWith(
-                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                Container(
+                  color: ColorPalette.primary,
+                  width: 0.1357.sw,
+                  height: 5,
+                ),
+                Padding(
+                  padding: index == 2
+                      ? EdgeInsets.only(bottom: 8)
+                      : EdgeInsets.only(bottom: 30),
+                  child: Column(
+                    children: [
+                      index == 2
+                          ? Container()
+                          : Container(
+                              child: Text(
+                                'Q2 2019',
+                                maxLines: 1,
+                                style: TextThemes.hedline_4.copyWith(
+                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
+                              ),
                             ),
-                          ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      color: index == 2
-                          ? ColorPalette.secondary
-                          : ColorPalette.primary,
-                      child: IconButton(
-                        color: ColorPalette.primary,
-                        onPressed: () {
-                          setState(() {
-                            index = 2;
-                          });
-                        },
-                        icon: index == 2
-                            ? Container()
-                            : SvgPicture.asset('assets/svg_icons/pending.svg'),
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
+                      Container(
+                        color: index == 2
+                            ? ColorPalette.secondary
+                            : ColorPalette.primary,
+                        child: IconButton(
+                          color: ColorPalette.primary,
+                          onPressed: () {
+                            setState(() {
+                              index = 2;
+                            });
+                          },
+                          icon: index == 2
+                              ? Container()
+                              : SvgPicture.asset(
+                                  'assets/svg_icons/pending.svg'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                color: ColorPalette.primary,
-                width: 0.1357.sw,
-                height: 5,
-              ),
-              Padding(
-                padding: index == 3
-                    ? EdgeInsets.only(bottom: 8)
-                    : EdgeInsets.only(bottom: 30),
-                child: Column(
-                  children: [
-                    index == 3
-                        ? Container()
-                        : Container(
-                            child: Text(
-                              'Q3 2019',
-                              maxLines: 1,
-                              style: TextThemes.hedline_4.copyWith(
-                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                Container(
+                  color: ColorPalette.primary,
+                  width: 0.1357.sw,
+                  height: 5,
+                ),
+                Padding(
+                  padding: index == 3
+                      ? EdgeInsets.only(bottom: 8)
+                      : EdgeInsets.only(bottom: 30),
+                  child: Column(
+                    children: [
+                      index == 3
+                          ? Container()
+                          : Container(
+                              child: Text(
+                                'Q3 2019',
+                                maxLines: 1,
+                                style: TextThemes.hedline_4.copyWith(
+                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
+                              ),
                             ),
-                          ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      color: index == 3
-                          ? ColorPalette.secondary
-                          : ColorPalette.primary,
-                      child: IconButton(
-                        color: ColorPalette.primary,
-                        onPressed: () {
-                          setState(() {
-                            index = 3;
-                          });
-                        },
-                        icon: index == 3
-                            ? Container()
-                            : SvgPicture.asset('assets/svg_icons/feature.svg'),
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
+                      Container(
+                        color: index == 3
+                            ? ColorPalette.secondary
+                            : ColorPalette.primary,
+                        child: IconButton(
+                          color: ColorPalette.primary,
+                          onPressed: () {
+                            setState(() {
+                              index = 3;
+                            });
+                          },
+                          icon: index == 3
+                              ? Container()
+                              : SvgPicture.asset(
+                                  'assets/svg_icons/feature.svg'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                color: ColorPalette.primary,
-                width: 0.1357.sw,
-                height: 5,
-              ),
-              Padding(
-                padding: index == 4
-                    ? EdgeInsets.only(bottom: 8)
-                    : EdgeInsets.only(bottom: 30),
-                child: Column(
-                  children: [
-                    index == 4
-                        ? Container()
-                        : Container(
-                            child: Text(
-                              'Q4 2019',
-                              maxLines: 1,
-                              style: TextThemes.hedline_4.copyWith(
-                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                Container(
+                  color: ColorPalette.primary,
+                  width: 0.1357.sw,
+                  height: 5,
+                ),
+                Padding(
+                  padding: index == 4
+                      ? EdgeInsets.only(bottom: 8)
+                      : EdgeInsets.only(bottom: 30),
+                  child: Column(
+                    children: [
+                      index == 4
+                          ? Container()
+                          : Container(
+                              child: Text(
+                                'Q4 2019',
+                                maxLines: 1,
+                                style: TextThemes.hedline_4.copyWith(
+                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
+                              ),
                             ),
-                          ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      color: index == 4
-                          ? ColorPalette.secondary
-                          : ColorPalette.primary,
-                      child: IconButton(
-                        color: ColorPalette.primary,
-                        onPressed: () {
-                          setState(() {
-                            index = 4;
-                          });
-                        },
-                        icon: index == 4
-                            ? Container()
-                            : SvgPicture.asset('assets/svg_icons/view.svg'),
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
+                      Container(
+                        color: index == 4
+                            ? ColorPalette.secondary
+                            : ColorPalette.primary,
+                        child: IconButton(
+                          color: ColorPalette.primary,
+                          onPressed: () {
+                            setState(() {
+                              index = 4;
+                            });
+                          },
+                          icon: index == 4
+                              ? Container()
+                              : SvgPicture.asset('assets/svg_icons/view.svg'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                color: ColorPalette.primary,
-                width: 0.1357.sw,
-                height: 5,
-              ),
-            ],
+                Container(
+                  color: ColorPalette.primary,
+                  width: 0.1357.sw,
+                  height: 5,
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -1183,21 +1191,26 @@ Content1() {
     children: [
       /// WORLD bly text and autoSize
       Container(
-        //width: 0.3.sw,
-        child: Text.rich(
-          TextSpan(
-            text: "own part of \nthe unique ",
-            children: [
-              TextSpan(
-                  text: '\nworld ',
-                  style: TextThemes.hedline_0
-                      .copyWith(color: ColorPalette.primary)),
-              TextSpan(text: 'on the \nblockchain'),
-            ],
-            style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
-          ),
+        width: 0.3.sw,
+        child: AutoSizeText(
+          "own part of \nthe unique \nworld on the \nblockchain",
+          style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
+          maxLines: 4,
         ),
+        // Text.rich(
+        //   TextSpan(
+        // text: "own part of \nthe unique ",
+        // children: [
+        //   TextSpan(
+        //       text: '\nworld ',
+        //       style: TextThemes.hedline_0
+        //           .copyWith(color: ColorPalette.primary)),
+        //   TextSpan(text: 'on the \nblockchain'),
+        // ],
+        //   style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
+        // ),
       ),
+      // ),
       Container(height: 72.h),
       Container(
         width: 0.3.sw,
