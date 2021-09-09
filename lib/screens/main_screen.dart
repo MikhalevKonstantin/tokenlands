@@ -20,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(1680, 1050),
+      designSize: Size(1680, 1050), //width, height
       builder: () => MaterialApp(
         home: Scaffold(
           body: SafeArea(
@@ -49,11 +49,11 @@ topPanel() {
   return Container(
     color: ColorPalette.card_l,
     width: 1.sw,
-    height: 96,
+    height: 0.09.sh,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Wrap(
+        Row(
           children: [
             Container(
               // width: 0.12.sw,
@@ -62,67 +62,83 @@ topPanel() {
               ),
             ),
             SizedBox(width: 0.028.sw),
-            Container(
-              // width: 0.048.sw,
-              child: TextButton(
-                onPressed: () {},
-                child: AutoSizeText(
-                  'Roadmap',
-                  maxLines: 1,
-                  style: TextThemes.hedline_6,
-                ),
+            if (window.physicalSize.width >= 768)
+              Row(
+                children: [
+                  Container(
+                    // width: 0.048.sw,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Gameplay',
+                        style: TextThemes.hedline_6,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 0.028.sw),
+                  Container(
+                    // width: 0.0589.sw,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: AutoSizeText(
+                        'Collection',
+                        maxLines: 1,
+                        style: TextThemes.hedline_6,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 0.028.sw),
+                  Container(
+                    // width: 0.024.sw,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: AutoSizeText(
+                        'Roadmap',
+                        maxLines: 1,
+                        style: TextThemes.hedline_6,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            SizedBox(width: 0.028.sw),
-            Container(
-              // width: 0.0589.sw,
-              child: TextButton(
-                onPressed: () {},
-                child: AutoSizeText(
-                  'Open packs',
-                  maxLines: 1,
-                  style: TextThemes.hedline_6,
-                ),
-              ),
-            ),
-            SizedBox(width: 0.028.sw),
-            Container(
-              // width: 0.024.sw,
-              child: TextButton(
-                onPressed: () {},
-                child: AutoSizeText(
-                  'Craft',
-                  maxLines: 1,
-                  style: TextThemes.hedline_6,
-                ),
-              ),
-            ),
           ],
         ),
         Row(
           children: [
-            SvgPicture.asset(
-              'assets/svg_icons/twitter.svg',
-            ),
-            SizedBox(width: 0.028.sw),
-            SvgPicture.asset(
-              'assets/svg_icons/telegram.svg',
-            ),
-            SizedBox(width: 0.028.sw),
-            SvgPicture.asset(
-              'assets/svg_icons/discord.svg',
-            ),
-            SizedBox(width: 0.028.sw),
-            SvgPicture.asset(
-              'assets/svg_icons/medium.svg',
-            ),
+            if (window.physicalSize.width >= 1280)
+              Row(
+                children: [
+                  SvgPicture.asset(
+                    'assets/svg_icons/twitter.svg',
+                  ),
+                  SizedBox(width: 0.028.sw),
+                  SvgPicture.asset(
+                    'assets/svg_icons/telegram.svg',
+                  ),
+                  SizedBox(width: 0.028.sw),
+                  //todo add telegram icon
+                  SvgPicture.asset(
+                    'assets/svg_icons/instagram7.svg',
+                  ),
+                  SizedBox(width: 0.028.sw),
+                  SvgPicture.asset(
+                    'assets/svg_icons/discord.svg',
+                  ),
+                  SizedBox(width: 0.028.sw),
+                  SvgPicture.asset(
+                    'assets/svg_icons/medium.svg',
+                  ),
+                ],
+              ),
             SizedBox(width: 0.028.sw),
             Container(
               color: ColorPalette.primary,
-              height: 48.h,
-              width: 0.079.sw,
-              child: Center(
-                child: AutoSizeText(
+              // height: 48.h,
+              // width: 0.079.w,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 24, top: 10, right: 24, bottom: 10),
+                child: Text(
                   'Buy packs',
                   style: TextThemes.button_1,
                 ),
@@ -139,20 +155,104 @@ info() {
   return Container(
     color: ColorPalette.bg_d_n,
     width: 1.sw,
-    height: 876.h,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Content1(),
-        Container(
-          width: 0.086.sw,
+    height: 0.91.sh,
+    child: Stack(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(
+              left: 0.10.sw, top: 0.1.sh, right: 0.1.sw, bottom: 0.1.sh),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Content1(),
+              Container(
+                // width: 0.319.sw,
+                child: Image.asset('assets/images/image_2w.png'),
+              ),
+            ],
+          ),
         ),
-        Container(
-          width: 0.319.sw,
-          child: Image.asset('assets/images/image_2w.png'),
+        Positioned(
+          top: 0.46.sh,
+          left: 0.25.sw,
+          child: Container(
+            // height: 0.26.sh,
+            // width: 0.12.sw,
+            child: Image.asset('assets/images/image_1t.png'),
+          ),
+        ),
+        Positioned(
+          top: 0.37.sh,
+          left: 0.44.sw,
+          child: Container(
+            // height: 0.26.sh,
+            // width: 0.12.sw,
+            child: Image.asset('assets/images/image_3w.png'),
+          ),
         ),
       ],
     ),
+  );
+}
+
+Content1() {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      /// WORLD bly text and autoSize
+      Container(
+        height: 0.21.sh,
+        width: 0.4.sw,
+        child: AutoSizeText(
+          "ECONOMICAL \nNFT GAME \nBASED ON \nBLOCKCHAIN WAX",
+          style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
+          //todo check spacing
+          maxLines: 5,
+        ),
+      ),
+      Container(height: 0.07.sh),
+      Container(
+        height: 0.07.sh,
+        child: AutoSizeText(
+          "The struggle of five continents \nfor economic and military superiority",
+          maxLines: 2,
+          style: TextThemes.subhead_1.copyWith(color: ColorPalette.text_d_60),
+        ),
+      ),
+      Container(height: 0.03.sh),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            color: Color(0xff1d5be6),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 0.02.sw, top: 0.02.sh, right: 0.02.sw, bottom: 0.02.sh),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  AutoSizeText(
+                    'Learn More',
+                    style: TextThemes.button_2,
+                  ),
+                  SizedBox(width: 0.0120.sw),
+                  Container(
+                    child: SvgPicture.asset(
+                      'assets/svg_icons/arrow-right.svg',
+                      color: ColorPalette.white,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
   );
 }
 
@@ -167,12 +267,12 @@ collection() {
       children: [
         TextButton(
           onPressed: () {},
-          child: Text('brave new world',
+          child: Text('Invest in world',
               style:
                   TextThemes.caption_3.copyWith(color: ColorPalette.primary)),
         ),
         SizedBox(height: 20),
-        Text('start your collection', style: TextThemes.hedline_2),
+        Text('Token Lands collection', style: TextThemes.hedline_2),
         SizedBox(height: 48),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -199,7 +299,7 @@ collection() {
         ),
         SizedBox(height: 48),
         Text(
-          'TokenLands cards come in 6 unique rarities',
+          'Unique collection of NFT cards',
           style: TextThemes.body_1,
         ),
         SizedBox(height: 24),
@@ -210,7 +310,8 @@ collection() {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AutoSizeText(
-                  'Start collection',
+                  //todo авторазворачивание по нажатию
+                  'All collection',
                   style: TextThemes.button_1.copyWith(
                     color: ColorPalette.primary,
                   ),
@@ -1010,66 +1111,5 @@ bottomPanel() {
         SizedBox(width: 0.1.sw),
       ],
     ),
-  );
-}
-
-Content1() {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      /// WORLD bly text and autoSize
-      Container(
-        width: 0.3.sw,
-        child: AutoSizeText(
-          "own part of \nthe unique \nworld on the \nblockchain",
-          style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
-          maxLines: 4,
-        ),
-        // Text.rich(
-        //   TextSpan(
-        // text: "own part of \nthe unique ",
-        // children: [
-        //   TextSpan(
-        //       text: '\nworld ',
-        //       style: TextThemes.hedline_0
-        //           .copyWith(color: ColorPalette.primary)),
-        //   TextSpan(text: 'on the \nblockchain'),
-        // ],
-        //   style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
-        // ),
-      ),
-      // ),
-      Container(height: 72.h),
-      Container(
-        width: 0.3.sw,
-        child: AutoSizeText(
-          "5 continents divided into sectors allowing the player to receive income from all this",
-          maxLines: 2,
-          style: TextThemes.subhead_1.copyWith(color: ColorPalette.text_d_60),
-        ),
-      ),
-      Container(height: 48.h),
-      Container(
-        color: Color(0xff1d5be6),
-        height: 72,
-        width: 204,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Get started',
-              style: TextThemes.button_2,
-            ),
-            SizedBox(width: 20.w),
-            SvgPicture.asset(
-              'assets/svg_icons/arrow-right.svg',
-              color: ColorPalette.white,
-            )
-          ],
-        ),
-      ),
-    ],
   );
 }
