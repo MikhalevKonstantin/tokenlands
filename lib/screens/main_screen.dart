@@ -29,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(1680, 1050), //width, height
+      designSize: const Size(1680, 1050), //width, height
       builder: () => MaterialApp(
         home: Scaffold(
           body: SafeArea(
@@ -43,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
                   AutoScrollTag(
                     controller: controller,
                     index: 2,
-                    key: ValueKey('Gameplay'),
+                    key: const ValueKey('Gameplay'),
                     child: Container(
                       color: ColorPalette.card_l,
                       child: Padding(
@@ -53,21 +53,36 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                   ),
-                  howWork(true, 'Continents', 'assets/images/Continents.webp'),
+                  howWork(true, 'Continents', 'assets/images/Continents.webp',
+                      'The Token Lands world consists of five competing continents divided into NFT sectors. Each continent is unique in its own way and has a certain resource on its territory that is necessary for creating an NFT card "Military Plant". The military and economic advantage of each player will affect the fate of the continent.'),
                   howWork(
-                      false, 'Land Sectors', 'assets/images/Land Sectors.webp'),
-                  howWork(true, 'Working', 'assets/images/Working.webp'),
-                  howWork(false, 'Evolution', 'assets/images/Evolution.webp'),
-                  howWork(true, 'Stacking', 'assets/images/Stacking.webp'),
-                  howWork(false, 'Commercial\nobjects',
-                      'assets/images/Continents.webp'),
-                  howWork(true, 'Auction', 'assets/images/Auction.webp'),
-                  howWork(false, 'Bank', 'assets/images/Bank.webp'),
-                  howWork(true, 'Mining', 'assets/images/Mining.webp'),
-                  howWork(false, 'Mine', 'assets/images/Mine.webp'),
+                      false,
+                      'Land Sectors',
+                      'assets/images/Land Sectors.webp',
+                      'Sectors are NFT cards of different rarity, consisting of slots for staking infrastructure objects, as well as the number of jobs for working. Sector owners will receive a stable profit of 10% from all objects placed on their sector, and from all the work performed. You can buy NFT cards at the presale stage in packs for Wax and in rare cases at an auction for T-coin.'),
+                  howWork(true, 'Working', 'assets/images/Working.webp',
+                      'Every TokenLands player has the opportunity to earn T-coin on any continent in any available sector absolutely for free. Performing the work, you get T-coins, as well as have a chance to get an Evolution NFT card.'),
+                  howWork(false, 'Evolution', 'assets/images/Evolution.webp',
+                      'Evolution is an NFT card of different rarity that increases the profit from Working. When used, the card burns out and adds from 2% to 10% to the work efficiency . It will be possible to purchase this NFT at an auction for T-coin, as well as, in rare cases, get it for free when performing work.'),
+                  howWork(true, 'Stacking', 'assets/images/Stacking.webp',
+                      'Owners of NFT cards from the collection of commercial objects have the opportunity to place them in the free sector on any of the continents and receive T-coin. It is the fastest and easiest way to earn T-coin and become an influential player of Token Lands.'),
                   howWork(
-                      true, 'War Factory', 'assets/images/War factory.webp'),
-                  howWork(false, 'War', 'assets/images/War.webp'),
+                      false,
+                      'Commercial\nobjects',
+                      'assets/images/Continents.webp',
+                      'This is a unique collection of NFT cards of various rarities that allow their owners to receive T-coin by placing them in sectors. The profit from commercial objects is fixed and depends on the rarity of your card. You can buy more powerful NFT cards at the presale stage in packs for Wax, and less powerful ones at the auction for T-coin.'),
+                  howWork(true, 'Auction', 'assets/images/Auction.webp',
+                      'A system for selling NFT cards will be implemented in the game: infrastructure objects, sectors, improving the player\'s characteristics for T-coins, by holding an auction. NFT cards purchased at auction will be less profitable than objects from the presale series.'),
+                  howWork(false, 'Bank', 'assets/images/Bank.webp',
+                      'The game will implement the T-coin deposit function for various periods from a month to a year. The interest rate on the deposit will depend on the term of your deposit. In case of early withdrawal of the deposit, the interest rate under the contract is not charged. Token Lands Bank will draw NFT cards among investors.'),
+                  howWork(true, 'Mining', 'assets/images/Mining.webp',
+                      'Mining mines will be located on each of the five continents for the extraction of NFT resources, which can be used for the construction of the mythical infrastructure object "Military Plant", or sold.'),
+                  howWork(false, 'Mine', 'assets/images/Mine.webp',
+                      'Each continent has its own mine with a unique NFT resource: Metal, brick, glass, fuel and chips. You will need T-coins to extract resources in a mine. The number of resources is limited and is updated daily.'),
+                  howWork(true, 'War Factory', 'assets/images/War factory.webp',
+                      'The War Factory is a Mythical NFT card that can only be obtained by crafting unique NFT resources. The most profitable infrastructure object that brings T-coin, as well as generates NFT cards of a military orientation.'),
+                  howWork(false, 'War', 'assets/images/War.webp',
+                      'The game will implement a war between continents, the winner will be determined by adding the capacities of all NFT cards of the military orientation of each player on the continent. The winning continent is given an increased T-coin production from staking and working for a week. The concept of war is thought out in such a way that the same continent will not be able to win all the time, and players will move to the continent with increased profit.'),
                   // gameplay(),
                   // getReady(),
                   RoadMap(),
@@ -86,109 +101,112 @@ class _MainScreenState extends State<MainScreen> {
       color: ColorPalette.card_l,
       width: 1.sw,
       height: 0.09.sh,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Row(
-            children: [
-              Container(
-                // width: 0.12.sw,
-                child: SvgPicture.asset(
-                  'assets/svg_icons/token-lands-horizontal.svg',
-                ),
-              ),
-              SizedBox(width: 0.028.sw),
-              if (window.physicalSize.width >= 768)
-                Row(
-                  children: [
-                    Container(
-                      // width: 0.048.sw,
-                      child: TextButton(
-                        onPressed: () {
-                          _scrollToIndex(2);
-                        },
-                        child: Text(
-                          'Gameplay',
-                          style: TextThemes.hedline_6,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 0.028.sw),
-                    Container(
-                      // width: 0.0589.sw,
-                      child: TextButton(
-                        onPressed: () {
-                          _scrollToIndex(1);
-                        },
-                        child: AutoSizeText(
-                          'Collection',
-                          maxLines: 1,
-                          style: TextThemes.hedline_6,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 0.028.sw),
-                    Container(
-                      // width: 0.024.sw,
-                      child: TextButton(
-                        onPressed: () {
-                          _scrollToIndex(3);
-                        },
-                        child: AutoSizeText(
-                          'Roadmap',
-                          maxLines: 1,
-                          style: TextThemes.hedline_6,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-            ],
-          ),
-          Row(
-            children: [
-              if (window.physicalSize.width >= 1280)
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svg_icons/twitter.svg',
-                    ),
-                    SizedBox(width: 0.028.sw),
-                    SvgPicture.asset(
-                      'assets/svg_icons/telegram.svg',
-                    ),
-                    SizedBox(width: 0.028.sw),
-                    //todo add instagram icon
-                    SvgPicture.asset(
-                      'assets/svg_icons/instagram7.svg',
-                    ),
-                    SizedBox(width: 0.028.sw),
-                    SvgPicture.asset(
-                      'assets/svg_icons/discord.svg',
-                    ),
-                    SizedBox(width: 0.028.sw),
-                    SvgPicture.asset(
-                      'assets/svg_icons/medium.svg',
-                    ),
-                  ],
-                ),
-              SizedBox(width: 0.028.sw),
-              Container(
-                color: ColorPalette.primary,
-                // height: 48.h,
-                // width: 0.079.w,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 24, top: 10, right: 24, bottom: 10),
-                  child: Text(
-                    'Buy packs',
-                    style: TextThemes.button_1,
+      child: Padding(
+        padding: EdgeInsets.only(left: 0.10.sw, right: 0.1.sw),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  // width: 0.12.sw,
+                  child: SvgPicture.asset(
+                    'assets/svg_icons/token-lands-horizontal.svg',
                   ),
                 ),
-              ),
-            ],
-          )
-        ],
+                SizedBox(width: 0.028.sw),
+                if (window.physicalSize.width >= 768)
+                  Row(
+                    children: [
+                      Container(
+                        // width: 0.048.sw,
+                        child: TextButton(
+                          onPressed: () {
+                            _scrollToIndex(2);
+                          },
+                          child: Text(
+                            'Gameplay',
+                            style: TextThemes.hedline_6,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 0.028.sw),
+                      Container(
+                        // width: 0.0589.sw,
+                        child: TextButton(
+                          onPressed: () {
+                            _scrollToIndex(1);
+                          },
+                          child: AutoSizeText(
+                            'Collection',
+                            maxLines: 1,
+                            style: TextThemes.hedline_6,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 0.028.sw),
+                      Container(
+                        // width: 0.024.sw,
+                        child: TextButton(
+                          onPressed: () {
+                            _scrollToIndex(3);
+                          },
+                          child: AutoSizeText(
+                            'Roadmap',
+                            maxLines: 1,
+                            style: TextThemes.hedline_6,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+              ],
+            ),
+            Row(
+              children: [
+                if (window.physicalSize.width >= 1280)
+                  Row(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/svg_icons/twitter.svg',
+                      ),
+                      SizedBox(width: 0.028.sw),
+                      SvgPicture.asset(
+                        'assets/svg_icons/telegram.svg',
+                      ),
+                      SizedBox(width: 0.028.sw),
+                      //todo add instagram icon
+                      SvgPicture.asset(
+                        'assets/svg_icons/telegram.svg',
+                      ),
+                      SizedBox(width: 0.028.sw),
+                      SvgPicture.asset(
+                        'assets/svg_icons/discord.svg',
+                      ),
+                      SizedBox(width: 0.028.sw),
+                      SvgPicture.asset(
+                        'assets/svg_icons/medium.svg',
+                      ),
+                    ],
+                  ),
+                SizedBox(width: 0.028.sw),
+                Container(
+                  color: ColorPalette.primary,
+                  // height: 48.h,
+                  // width: 0.079.w,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 24, top: 10, right: 24, bottom: 10),
+                    child: Text(
+                      'Buy packs',
+                      style: TextThemes.button_1,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -197,12 +215,12 @@ class _MainScreenState extends State<MainScreen> {
     return Container(
       color: ColorPalette.bg_d_n,
       width: 1.sw,
-      height: 0.91.sh,
+      height: 0.22.sh + 0.4.sw,
       child: Stack(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(
-                left: 0.10.sw, top: 0.1.sh, right: 0.1.sw, bottom: 0.1.sh),
+                left: 0.10.sw, top: 0.11.sh, right: 0.1.sw, bottom: 0.11.sh),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,26 +233,64 @@ class _MainScreenState extends State<MainScreen> {
             top: 0.1.sh,
             left: 0.5.sw,
             child: Container(
-              // width: 0.319.sw,
-              child: Image.asset('assets/images/image_2w.png'),
+              width: 0.4.sw,
+              // height: 0.62.sh,
+              child: Image.asset('assets/images/main1.webp'),
             ),
           ),
           Positioned(
-            top: 0.56.sh,
+            top: 0.54.sh,
             right: 0.5.sw,
             child: Container(
-              height: 0.26.sh,
-              // width: 0.25.sw,
-              child: Image.asset('assets/images/image_1t.png'),
+              // height: 0.26.sh,
+              width: 0.25.sw,
+              child: Image.asset('assets/images/main2.webp'),
             ),
           ),
           Positioned(
-            top: 0.37.sh,
+            top: 0.45.sh,
             left: 0.44.sw,
             child: Container(
               height: 0.26.sh,
               // width: 0.12.sw,
-              child: Image.asset('assets/images/image_3w.png'),
+              child: Image.asset('assets/images/main3.webp'),
+            ),
+          ),
+          Positioned(
+            top: 0.54.sh,
+            left: 0.1.sw,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xff1d5be6),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        left: 0.02.sw,
+                        top: 0.02.sh,
+                        right: 0.02.sw,
+                        bottom: 0.02.sh),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      //crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        AutoSizeText(
+                          'Learn More',
+                          style: TextThemes.button_2,
+                        ),
+                        SizedBox(width: 0.0120.sw),
+                        Container(
+                          child: SvgPicture.asset(
+                            'assets/svg_icons/arrow-right.svg',
+                            color: ColorPalette.white,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -251,11 +307,28 @@ class _MainScreenState extends State<MainScreen> {
         Container(
           height: 0.21.sh,
           width: 0.4.sw,
-          child: AutoSizeText(
-            "ECONOMICAL \nNFT GAME \nBASED ON \nBLOCKCHAIN WAX",
-            style: TextThemes.hedline_0.copyWith(color: ColorPalette.white),
+          child: AutoSizeText.rich(
+            TextSpan(
+              children: <TextSpan>[
+                TextSpan(
+                  text: "ECONOMICAL \nNFT",
+                  style:
+                      TextThemes.hedline_0.copyWith(color: ColorPalette.white),
+                ),
+                TextSpan(
+                  text: " GAME",
+                  style: TextThemes.hedline_0
+                      .copyWith(color: ColorPalette.primary),
+                ),
+                TextSpan(
+                  text: "\nBASED ON \nBLOCKCHAIN WAX",
+                  style:
+                      TextThemes.hedline_0.copyWith(color: ColorPalette.white),
+                ),
+              ],
+            ),
             wrapWords: false,
-            presetFontSizes: [72, 64, 56],
+            // presetFontSizes: [72, 64, 56],
             maxLines: 5,
           ),
         ),
@@ -270,39 +343,6 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         Container(height: 0.03.sh),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              color: Color(0xff1d5be6),
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: 0.02.sw,
-                    top: 0.02.sh,
-                    right: 0.02.sw,
-                    bottom: 0.02.sh),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    AutoSizeText(
-                      'Learn More',
-                      style: TextThemes.button_2,
-                    ),
-                    SizedBox(width: 0.0120.sw),
-                    Container(
-                      child: SvgPicture.asset(
-                        'assets/svg_icons/arrow-right.svg',
-                        color: ColorPalette.white,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
       ],
     );
   }
@@ -511,7 +551,7 @@ class _MainScreenState extends State<MainScreen> {
     }
   }
 
-  Widget howWork(rightPic, name, pic) {
+  Widget howWork(rightPic, name, pic, description) {
     return Container(
       color: (rightPic) ? ColorPalette.card_l : ColorPalette.bg_l,
       width: 1.sw,
@@ -542,46 +582,50 @@ class _MainScreenState extends State<MainScreen> {
                       child: Row(
                         mainAxisAlignment: (rightPic)
                             ? MainAxisAlignment.start
-                            : MainAxisAlignment.end,
+                            : MainAxisAlignment.start,
                         children: [
                           Expanded(
                             child: AutoSizeText(name,
                                 // softWrap: false,
                                 wrapWords: false,
-                                textAlign:
-                                    rightPic ? TextAlign.start : TextAlign.end,
+                                textAlign: rightPic
+                                    ? TextAlign.start
+                                    : TextAlign.start,
                                 maxLines: 2,
-                                presetFontSizes: [36, 30, 24],
+                                presetFontSizes: const [36, 30, 24],
                                 style: TextThemes.hedline_2),
                           ),
                         ],
                       ),
                     ),
-                    // Container(
-                    //   width: 0.1857.sw,
-                    //   child: AutoSizeText(
-                    //       // "Ownership cards match 1:1 with a unique piece of equipment or vehicle on our colony map. The more you own, the higher on the colony leaderboard you will rank. You can find ownership cards inside of supply crates for Mission Two.",
-                    //       "",
-                    //       maxLines: 7,
-                    //       style: TextThemes.body_1),
-                    // ),
+                    SizedBox(height: 16),
+                    Container(
+                      width: 0.1857.sw,
+                      child: AutoSizeText(
+                          // "Ownership cards match 1:1 with a unique piece of equipment or vehicle on our colony map. The more you own, the higher on the colony leaderboard you will rank. You can find ownership cards inside of supply crates for Mission Two.",
+                          description,
+                          softWrap: true,
+                          // maxLines: 10,
+                          presetFontSizes: const [16, 14, 12, 10],
+                          style: TextThemes.body_1),
+                    ),
                     // Container(
                     //   height: 200.h,
                     // ),
-                    GestureDetector(
-                      child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('Learn More',
-                                style: TextThemes.button_1
-                                    .copyWith(color: ColorPalette.primary)),
-                            SizedBox(width: 8),
-                            SvgPicture.asset('assets/svg_icons/arrow-right.svg')
-                          ],
-                        ),
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   child: Container(
+                    //     child: Row(
+                    //       mainAxisAlignment: MainAxisAlignment.center,
+                    //       children: [
+                    //         Text('Learn More',
+                    //             style: TextThemes.button_1
+                    //                 .copyWith(color: ColorPalette.primary)),
+                    //         SizedBox(width: 8),
+                    //         SvgPicture.asset('assets/svg_icons/arrow-right.svg')
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
