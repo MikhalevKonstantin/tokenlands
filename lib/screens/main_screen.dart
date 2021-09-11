@@ -30,10 +30,30 @@ class _MainScreenState extends State<MainScreen> {
                   topPanel(),
                   info(),
                   collection(),
+
+                  Padding(
+                    padding: EdgeInsets.only(top: 0.02.sh, bottom: 0.05.sh),
+                    child: Text('Token Lands collection',
+                        style: TextThemes.hedline_2),
+                  ),
+                  howWork(true, 'Continents', 'assets/images/Continents.webp'),
+                  howWork(
+                      false, 'Land Sectors', 'assets/images/Land Sectors.webp'),
+                  howWork(true, 'Working', 'assets/images/Working.webp'),
+                  howWork(false, 'Evolution', 'assets/images/Evolution.webp'),
+                  howWork(true, 'Stacking', 'assets/images/Stacking.webp'),
+                  howWork(false, 'Commercial\nobjects',
+                      'assets/images/Continents.webp'),
+                  howWork(true, 'Auction', 'assets/images/Auction.webp'),
+                  howWork(false, 'Bank', 'assets/images/Bank.webp'),
+                  howWork(true, 'Mining', 'assets/images/Mining.webp'),
+                  howWork(false, 'Mine', 'assets/images/Mine.webp'),
+                  howWork(
+                      true, 'War Factory', 'assets/images/War factory.webp'),
+                  howWork(false, 'War', 'assets/images/War.webp'),
+                  // gameplay(),
+                  // getReady(),
                   RoadMap(),
-                  howWork(),
-                  gameplay(),
-                  getReady(),
                   bottomPanel(),
                 ],
               ),
@@ -166,19 +186,23 @@ info() {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Content1(),
-              Container(
-                // width: 0.319.sw,
-                child: Image.asset('assets/images/image_2w.png'),
-              ),
             ],
           ),
         ),
         Positioned(
-          top: 0.46.sh,
-          left: 0.25.sw,
+          top: 0.1.sh,
+          left: 0.5.sw,
           child: Container(
-            // height: 0.26.sh,
-            // width: 0.12.sw,
+            // width: 0.319.sw,
+            child: Image.asset('assets/images/image_2w.png'),
+          ),
+        ),
+        Positioned(
+          top: 0.56.sh,
+          right: 0.5.sw,
+          child: Container(
+            height: 0.26.sh,
+            // width: 0.25.sw,
             child: Image.asset('assets/images/image_1t.png'),
           ),
         ),
@@ -186,7 +210,7 @@ info() {
           top: 0.37.sh,
           left: 0.44.sw,
           child: Container(
-            // height: 0.26.sh,
+            height: 0.26.sh,
             // width: 0.12.sw,
             child: Image.asset('assets/images/image_3w.png'),
           ),
@@ -215,6 +239,7 @@ Content1() {
       Container(height: 0.07.sh),
       Container(
         height: 0.07.sh,
+        width: 0.34.sw,
         child: AutoSizeText(
           "The struggle of five continents \nfor economic and military superiority",
           maxLines: 2,
@@ -257,72 +282,79 @@ Content1() {
 }
 
 collection() {
-  return Container(
-    color: ColorPalette.card_l,
-    width: 1.sw,
-    height: 664.h,
-    child: Column(
-      // crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextButton(
-          onPressed: () {},
-          child: Text('Invest in world',
-              style:
-                  TextThemes.caption_3.copyWith(color: ColorPalette.primary)),
-        ),
-        SizedBox(height: 20),
-        Text('Token Lands collection', style: TextThemes.hedline_2),
-        SizedBox(height: 48),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_4w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_4w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-            Container(
-                width: 0.119.sw,
-                child: Image.asset('assets/images/image_3w.png')),
-          ],
-        ),
-        SizedBox(height: 48),
-        Text(
-          'Unique collection of NFT cards',
-          style: TextThemes.body_1,
-        ),
-        SizedBox(height: 24),
-        GestureDetector(
-          child: Container(
-            //width: 0.0964.sw,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AutoSizeText(
-                  //todo авторазворачивание по нажатию
-                  'All collection',
-                  style: TextThemes.button_1.copyWith(
-                    color: ColorPalette.primary,
-                  ),
-                ),
-                SizedBox(width: 12),
-                SvgPicture.asset('assets/svg_icons/arrow-right.svg'),
-              ],
+  //todo убрать падинги с контейнеров тк фон
+  return Padding(
+    padding: EdgeInsets.only(
+        left: 0.10.sw, top: 0.07.sh, right: 0.1.sw, bottom: 0.07.sh),
+    child: Container(
+      color: ColorPalette.card_l,
+      width: 0.8.sw,
+      // height: 0.5.sh,
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () {},
+            child: Text('Invest in new world',
+                style:
+                    TextThemes.caption_3.copyWith(color: ColorPalette.primary)),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 0.02.sh, bottom: 0.05.sh),
+            child: Text('Token Lands collection', style: TextThemes.hedline_2),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                  width: 0.119.sw,
+                  child: Image.asset('assets/images/CDrone.webp')),
+              Container(
+                  width: 0.119.sw,
+                  child: Image.asset('assets/images/CBar.webp')),
+              Container(
+                  width: 0.119.sw,
+                  child: Image.asset('assets/images/CGasStation.webp')),
+              Container(
+                  width: 0.119.sw,
+                  child: Image.asset('assets/images/CRobotsShop.webp')),
+              Container(
+                  width: 0.119.sw,
+                  child: Image.asset('assets/images/CStarshipPort.webp')),
+              Container(
+                  width: 0.119.sw,
+                  child: Image.asset('assets/images/CWarFactory.webp')),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 0.02.sh, bottom: 0.05.sh),
+            child: Text(
+              'Unique collection of NFT cards',
+              style: TextThemes.body_1,
             ),
           ),
-        ),
-      ],
+          GestureDetector(
+            child: Container(
+              //width: 0.0964.sw,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AutoSizeText(
+                    //todo авторазворачивание по нажатию
+                    'Start collection',
+                    style: TextThemes.button_1.copyWith(
+                      color: ColorPalette.primary,
+                    ),
+                  ),
+                  SizedBox(width: 12),
+                  SvgPicture.asset('assets/svg_icons/arrow-right.svg'),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -342,14 +374,14 @@ switchWithString() {
               ),
               SizedBox(height: 30),
               Text(
-                'Q1 2019',
+                'Q4 2021',
                 maxLines: 1,
                 style: TextThemes.hedline_4
                     .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
               ),
               SizedBox(height: 15),
-              Text(
-                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+              AutoSizeText(
+                'Game concept presentation \n1000 NTF cards giveaway \nPresale NFT Packs Series 1 \nPresale NFT Packs Series 2',
                 style: TextThemes.body_2,
               ),
             ],
@@ -369,14 +401,14 @@ switchWithString() {
               ),
               SizedBox(height: 30),
               Text(
-                'Q2 2019',
+                'Q1 2022',
                 maxLines: 1,
                 style: TextThemes.hedline_4
                     .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
               ),
               SizedBox(height: 15),
               Text(
-                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                'Game Development: \nWorking \nStacking \nAuction \nBank',
                 style: TextThemes.body_2,
               ),
             ],
@@ -397,14 +429,14 @@ switchWithString() {
               ),
               SizedBox(height: 30),
               Text(
-                'Q3 2019',
+                'Q2 2022',
                 maxLines: 1,
                 style: TextThemes.hedline_4
                     .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
               ),
               SizedBox(height: 15),
               Text(
-                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                'Game Development: \nMining \nWar Factory \nCraft',
                 style: TextThemes.body_2,
               ),
             ],
@@ -426,14 +458,14 @@ switchWithString() {
               ),
               SizedBox(height: 30),
               Text(
-                'Q4 2019',
+                'Q3 2022',
                 maxLines: 1,
                 style: TextThemes.hedline_4
                     .copyWith(height: 1.33, fontFamily: 'SpaceMono Bold'),
               ),
               SizedBox(height: 15),
               Text(
-                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                'Game Development: \nWar \nContinent Bonus \nT-coin Stacking',
                 style: TextThemes.body_2,
               ),
             ],
@@ -455,385 +487,421 @@ class RoadMap extends StatefulWidget {
 class _RoadMapState extends State<RoadMap> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ColorPalette.bg_l,
-      width: 1.sw,
-      height: 650,
-      child: Column(
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(left: 0.11.sw),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    child: Text(
-                      "roadmap",
-                      maxLines: 1,
-                      style: TextThemes.hedline_9
-                          .copyWith(color: ColorPalette.primary),
+    return Padding(
+      padding: EdgeInsets.only(
+          left: 0.10.sw, top: 0.07.sh, right: 0.1.sw, bottom: 0.07.sh),
+      child: Container(
+        color: ColorPalette.bg_l,
+        width: 0.8.sw,
+        // height: 0.7.sh,
+        child: Column(
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              height: 0.44.sh,
+              width: 0.80.sw,
+              child: Stack(
+                children: [
+                  Container(
+                    // width: 0.167.sw,
+                    child: AutoSizeText('Roadmap',
+                        maxLines: 1, style: TextThemes.hedline_2),
+                  ),
+                  Center(
+                    child: Container(
+                      color: ColorPalette.white,
+                      width: (350 > 0.22.sw) ? 350 : 0.22.sw,
+                      height: 0.44.sh,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        //mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          switchWithString(),
+                          Expanded(child: Container()),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    if (index == 3 ||
+                                        index == 2 ||
+                                        index == 4) {
+                                      index = index - 1;
+                                    } else if (index == 1) {
+                                      index = 1;
+                                    }
+                                  });
+                                },
+                                child: Container(
+                                  height: 0.04.sw,
+                                  width: 0.04.sw,
+                                  color: ColorPalette.text_l_2,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                        'assets/svg_icons/arrow-left.svg',
+                                        color: ColorPalette.text_l_60,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    if (index == 3 ||
+                                        index == 2 ||
+                                        index == 1) {
+                                      index = index + 1;
+                                    } else if (index == 4) {
+                                      index = 4;
+                                    }
+                                    ;
+                                  });
+                                },
+                                child: Container(
+                                  color: ColorPalette.text_l_2,
+                                  width: 115,
+                                  height: 48,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Next',
+                                        style: TextThemes.hedline_7,
+                                      ),
+                                      SizedBox(width: 12),
+                                      SvgPicture.asset(
+                                        'assets/svg_icons/arrow-right1.svg',
+                                        color: ColorPalette.text_l_60,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  height: 20.h,
-                ),
-                Container(
-                  width: 0.167.sw,
-                  child: AutoSizeText('our ultimate \nvision',
-                      maxLines: 2, style: TextThemes.hedline_2),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Container(
-            color: ColorPalette.white,
-            width: 350,
-            height: 400,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              //mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                switchWithString(),
-                Expanded(child: Container()),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            if (index == 3 || index == 2 || index == 4) {
-                              index = index - 1;
-                            } else if (index == 1) {
-                              index = 4;
-                            }
-                          });
-                        },
-                        child: Container(
-                          height: 48,
-                          width: 48,
-                          color: ColorPalette.text_l_2,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/svg_icons/arrow-left.svg',
-                                color: ColorPalette.text_l_60,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            if (index == 3 || index == 2 || index == 1) {
-                              index = index + 1;
-                            } else if (index == 4) {
-                              index = 1;
-                            }
-                            ;
-                          });
-                        },
-                        child: Container(
-                          color: ColorPalette.text_l_2,
-                          width: 115,
-                          height: 48,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Next',
-                                style: TextThemes.hedline_7,
-                              ),
-                              SizedBox(width: 12),
-                              SvgPicture.asset(
-                                'assets/svg_icons/arrow-right1.svg',
-                                color: ColorPalette.text_l_60,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 216,
+              child: Stack(
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Positioned(
+                    top: 101,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                        colors: [
+                          Colors.white,
+                          ColorPalette.primary,
+                          ColorPalette.primary,
+                          ColorPalette.primary,
+                          Colors.white,
+                        ],
+                        begin: const FractionalOffset(0.0, 0.0),
+                        end: const FractionalOffset(1.0, 0.0),
+                      )),
+                      width: 0.8.sw,
+                      height: 6,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  color: ColorPalette.primary,
-                  width: 0.1357.sw,
-                  height: 5,
-                ),
-                Padding(
-                  padding: index == 1
-                      ? EdgeInsets.only(bottom: 8)
-                      : EdgeInsets.only(bottom: 30),
-                  child: Column(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
+                  Positioned(
+                    left: 0.16.sw - 40,
+                    top: 16,
+                    child: Column(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 16),
+                          child: Container(
+                            // width: ,
+                            height: 32,
+                            child: AutoSizeText(
+                              'Q4 2021',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 80,
+                          width: 80,
+                          color: Colors.white,
+                          child: Center(
+                            child: Container(
+                              height: 64,
+                              width: 64,
+                              color: index == 1
+                                  ? ColorPalette.secondary
+                                  : ColorPalette.primary,
+                              child: IconButton(
+                                color: ColorPalette.primary,
+                                onPressed: () {
+                                  setState(() {
+                                    index = 1;
+                                  });
+                                },
+                                icon: index == 1
+                                    ? Container()
+                                    : SvgPicture.asset(
+                                        'assets/svg_icons/bolt.svg'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    left: 0.32.sw - 40,
+                    top: 16,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 16),
+                          child: Container(
+                            child: Text(
+                              'Q1 2022',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 80,
+                          width: 80,
+                          color: Colors.white,
+                          child: Center(
+                            child: Container(
+                              height: 64,
+                              width: 64,
+                              color: index == 2
+                                  ? ColorPalette.secondary
+                                  : ColorPalette.primary,
+                              child: IconButton(
+                                color: ColorPalette.primary,
+                                onPressed: () {
+                                  setState(() {
+                                    index = 2;
+                                  });
+                                },
+                                icon: index == 2
+                                    ? Container()
+                                    : SvgPicture.asset(
+                                        'assets/svg_icons/pending.svg'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Padding(
+                  //   padding: index == 3
+                  //       ? EdgeInsets.only(bottom: 8)
+                  //       : EdgeInsets.only(bottom: 30),
+                  //   child:
+                  Positioned(
+                    left: 0.48.sw - 40,
+                    top: 16,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 16),
+                          child: Container(
+                            child: Text(
+                              'Q2 2022',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 80,
+                          width: 80,
+                          color: Colors.white,
+                          child: Center(
+                            child: Container(
+                              height: 64,
+                              width: 64,
+                              color: index == 3
+                                  ? ColorPalette.secondary
+                                  : ColorPalette.primary,
+                              child: IconButton(
+                                color: ColorPalette.primary,
+                                onPressed: () {
+                                  setState(() {
+                                    index = 3;
+                                  });
+                                },
+                                icon: index == 3
+                                    ? Container()
+                                    : SvgPicture.asset(
+                                        'assets/svg_icons/feature.svg'),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
 
-                    children: [
-                      index == 1
-                          ? Container()
-                          : Container(
-                              // width: ,
-                              child: AutoSizeText(
-                                'Q1 2019',
-                                maxLines: 1,
-                                style: TextThemes.hedline_4.copyWith(
-                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
+                  Positioned(
+                    left: 0.64.sw - 40,
+                    top: 16,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: Text(
+                              'Q3 2022',
+                              maxLines: 1,
+                              style: TextThemes.hedline_4.copyWith(
+                                  height: 1.33, fontFamily: 'SpaceMono Bold'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 80,
+                          width: 80,
+                          color: Colors.white,
+                          child: Center(
+                            child: Container(
+                              height: 64,
+                              width: 64,
+                              color: index == 4
+                                  ? ColorPalette.secondary
+                                  : ColorPalette.primary,
+                              child: IconButton(
+                                color: ColorPalette.primary,
+                                onPressed: () {
+                                  setState(() {
+                                    index = 4;
+                                  });
+                                },
+                                icon: index == 4
+                                    ? Container()
+                                    : SvgPicture.asset(
+                                        'assets/svg_icons/view.svg'),
                               ),
                             ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        color: index == 1
-                            ? ColorPalette.secondary
-                            : ColorPalette.primary,
-                        child: IconButton(
-                          color: ColorPalette.primary,
-                          onPressed: () {
-                            setState(() {
-                              index = 1;
-                            });
-                          },
-                          icon: index == 1
-                              ? Container()
-                              : SvgPicture.asset('assets/svg_icons/bolt.svg'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  color: ColorPalette.primary,
-                  width: 0.1357.sw,
-                  height: 5,
-                ),
-                Padding(
-                  padding: index == 2
-                      ? EdgeInsets.only(bottom: 8)
-                      : EdgeInsets.only(bottom: 30),
-                  child: Column(
-                    children: [
-                      index == 2
-                          ? Container()
-                          : Container(
-                              child: Text(
-                                'Q2 2019',
-                                maxLines: 1,
-                                style: TextThemes.hedline_4.copyWith(
-                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
-                              ),
-                            ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        color: index == 2
-                            ? ColorPalette.secondary
-                            : ColorPalette.primary,
-                        child: IconButton(
-                          color: ColorPalette.primary,
-                          onPressed: () {
-                            setState(() {
-                              index = 2;
-                            });
-                          },
-                          icon: index == 2
-                              ? Container()
-                              : SvgPicture.asset(
-                                  'assets/svg_icons/pending.svg'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  color: ColorPalette.primary,
-                  width: 0.1357.sw,
-                  height: 5,
-                ),
-                Padding(
-                  padding: index == 3
-                      ? EdgeInsets.only(bottom: 8)
-                      : EdgeInsets.only(bottom: 30),
-                  child: Column(
-                    children: [
-                      index == 3
-                          ? Container()
-                          : Container(
-                              child: Text(
-                                'Q3 2019',
-                                maxLines: 1,
-                                style: TextThemes.hedline_4.copyWith(
-                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
-                              ),
-                            ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        color: index == 3
-                            ? ColorPalette.secondary
-                            : ColorPalette.primary,
-                        child: IconButton(
-                          color: ColorPalette.primary,
-                          onPressed: () {
-                            setState(() {
-                              index = 3;
-                            });
-                          },
-                          icon: index == 3
-                              ? Container()
-                              : SvgPicture.asset(
-                                  'assets/svg_icons/feature.svg'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  color: ColorPalette.primary,
-                  width: 0.1357.sw,
-                  height: 5,
-                ),
-                Padding(
-                  padding: index == 4
-                      ? EdgeInsets.only(bottom: 8)
-                      : EdgeInsets.only(bottom: 30),
-                  child: Column(
-                    children: [
-                      index == 4
-                          ? Container()
-                          : Container(
-                              child: Text(
-                                'Q4 2019',
-                                maxLines: 1,
-                                style: TextThemes.hedline_4.copyWith(
-                                    height: 1.33, fontFamily: 'SpaceMono Bold'),
-                              ),
-                            ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        color: index == 4
-                            ? ColorPalette.secondary
-                            : ColorPalette.primary,
-                        child: IconButton(
-                          color: ColorPalette.primary,
-                          onPressed: () {
-                            setState(() {
-                              index = 4;
-                            });
-                          },
-                          icon: index == 4
-                              ? Container()
-                              : SvgPicture.asset('assets/svg_icons/view.svg'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  color: ColorPalette.primary,
-                  width: 0.1357.sw,
-                  height: 5,
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
-howWork() {
+howWork(rightPic, name, pic) {
   return Container(
-    color: ColorPalette.card_l,
+    color: (rightPic) ? ColorPalette.card_l : ColorPalette.bg_l,
     width: 1.sw,
-    height: 580.h,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 0.519.sw,
-          child: Image.asset('assets/images/image_5w.png'),
-        ),
-        Container(
-          width: 0.08.sw,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+    // height: 580.h,
+    child: Padding(
+      padding: EdgeInsets.only(
+          left: 0.10.sw, top: 0.07.sh, right: 0.1.sw, bottom: 0.07.sh),
+      child: Container(
+        width: 0.8.sw,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                child: Text(
-                  "how does it work?",
-                  maxLines: 1,
-                  style: TextThemes.hedline_9
-                      .copyWith(color: ColorPalette.primary),
-                ),
+            (rightPic)
+                ? Container(
+                    width: 0.6.sw,
+                    child: Image.asset(pic),
+                  )
+                : Container(),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: (rightPic)
+                    ? CrossAxisAlignment.start
+                    : CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    width: 0.18.sw,
+                    child: Row(
+                      mainAxisAlignment: (rightPic)
+                          ? MainAxisAlignment.start
+                          : MainAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: AutoSizeText(name,
+                              textAlign:
+                                  rightPic ? TextAlign.start : TextAlign.end,
+                              maxLines: 2,
+                              presetFontSizes: [36, 30, 24],
+                              style: TextThemes.hedline_2),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Container(
+                  //   width: 0.1857.sw,
+                  //   child: AutoSizeText(
+                  //       // "Ownership cards match 1:1 with a unique piece of equipment or vehicle on our colony map. The more you own, the higher on the colony leaderboard you will rank. You can find ownership cards inside of supply crates for Mission Two.",
+                  //       "",
+                  //       maxLines: 7,
+                  //       style: TextThemes.body_1),
+                  // ),
+                  // Container(
+                  //   height: 200.h,
+                  // ),
+                  GestureDetector(
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Learn More',
+                              style: TextThemes.button_1
+                                  .copyWith(color: ColorPalette.primary)),
+                          SizedBox(width: 8),
+                          SvgPicture.asset('assets/svg_icons/arrow-right.svg')
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Container(
-              height: 20.h,
-            ),
-            Container(
-              width: 0.167.sw,
-              child: AutoSizeText('OWN A PART \nOF THE COLONY',
-                  maxLines: 2, style: TextThemes.hedline_2),
-            ),
-            Container(height: 32.h),
-            Container(
-              width: 0.1857.sw,
-              child: AutoSizeText(
-                  "Ownership cards match 1:1 with a unique piece of equipment or vehicle on our colony map. The more you own, the higher on the colony leaderboard you will rank. You can find ownership cards inside of supply crates for Mission Two.",
-                  maxLines: 7,
-                  style: TextThemes.body_1),
-            ),
-            Container(height: 24.h),
-            GestureDetector(
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Open packs',
-                        style: TextThemes.button_1
-                            .copyWith(color: ColorPalette.primary)),
-                    SizedBox(width: 12),
-                    SvgPicture.asset('assets/svg_icons/arrow-right.svg')
-                  ],
-                ),
-              ),
-            ),
+            (!rightPic)
+                ? Container(
+                    width: 0.6.sw,
+                    child: Image.asset(pic),
+                  )
+                : Container(),
           ],
         ),
-      ],
+      ),
     ),
   );
 }
@@ -842,43 +910,22 @@ gameplay() {
   return Container(
     color: ColorPalette.bg_l,
     width: 1.sw,
-    height: 580.h,
+    // height: 580.h,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                child: Text("gameplay",
-                    style: TextThemes.hedline_9
-                        .copyWith(color: ColorPalette.primary)),
-              ),
-            ),
-            Container(
-              height: 20.h,
-            ),
             Container(
               width: 0.1857.sw,
               child: AutoSizeText(
-                '3 POSSIBLE \nCRAFTING\nOUTCOMES',
+                'Land Sectors',
                 maxLines: 3,
                 style: TextThemes.hedline_2,
               ),
             ),
-            Container(height: 32.h),
-            Container(
-              width: 0.1857.sw,
-              child: AutoSizeText(
-                "There are 3 possible outcomes for each crafting tier: A 79% chance of success, a 1% chance of critical success, and a 20% chance of failure. Critical success is where you receive 2 cards of the higher rarity.",
-                maxLines: 6,
-                style: TextThemes.body_1,
-              ),
-            ),
-            Container(height: 24.h),
             GestureDetector(
               child: Container(
                 child: Row(
