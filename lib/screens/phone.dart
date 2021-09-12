@@ -9,6 +9,7 @@ import 'package:tokenlands/theme/color_theme.dart';
 import 'package:tokenlands/theme/text_theme.dart';
 
 int index = 1;
+//todo get startded icon
 
 class Phone extends StatefulWidget {
   const Phone({Key? key}) : super(key: key);
@@ -54,22 +55,7 @@ class _PhoneState extends State<Phone> {
               child: Column(
                 children: [
                   info(),
-                  Container(
-                    // height: 360,
-                    width: 1.sw,
-                    child: Image.asset(
-                      'assets/images/main1.webp',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Container(
-                    // height: 360,
-                    width: 1.sw,
-                    child: Image.asset(
-                      'assets/images/main2.webp',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
+
                   collection(),
                   Container(
                     color: ColorPalette.card_l,
@@ -135,91 +121,134 @@ info() {
     color: ColorPalette.bg_d_n,
     width: 1.sw,
     // height: 312,
-    child: Padding(
-      padding: EdgeInsets.only(
-          left: 0.09.sw, right: 0.09.sw, top: 0.09.sw, bottom: 0.09.sw),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 0.82.sw,
-            child: AutoSizeText.rich(
-              TextSpan(
-                children: <TextSpan>[
-                  TextSpan(
-                    text: "ECONOMICAL NFT",
-                    style: TextThemes.hedline_3
-                        .copyWith(color: ColorPalette.white),
+    child: Stack(
+      children: [
+        Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  left: 0.09.sw, right: 0.09.sw, top: 32, bottom: 0.09.sw),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 0.82.sw,
+                    height: 72,
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: "2ECONOMICAL NFT",
+                            style: TextThemes.hedline_3
+                                .copyWith(color: ColorPalette.white),
+                          ),
+                          TextSpan(
+                            text: " GAME",
+                            style: TextThemes.hedline_3
+                                .copyWith(color: ColorPalette.primary),
+                          ),
+                          TextSpan(
+                            text: " BASED ON BLOCKCHAIN WAX",
+                            style: TextThemes.hedline_3
+                                .copyWith(color: ColorPalette.white),
+                          ),
+                        ],
+                      ),
+                      // wrapWords: false,
+                      // presetFontSizes: [72, 64, 56],
+                      maxLines: 3,
+                    ),
                   ),
-                  TextSpan(
-                    text: " GAME",
-                    style: TextThemes.hedline_3
-                        .copyWith(color: ColorPalette.primary),
+                  Container(
+                    height: 32.h,
                   ),
-                  TextSpan(
-                    text: " BASED ON \nBLOCKCHAIN WAX",
-                    style: TextThemes.hedline_3
-                        .copyWith(color: ColorPalette.white),
+                  Container(
+                    height: 72,
+                    width: 0.8.sw,
+                    child: AutoSizeText(
+                      "The struggle of five continents \nfor economic and military superiority",
+                      maxLines: 3,
+                      style: TextStyle(
+                        fontFamily: 'Montserrat Medium',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        height: 1.71,
+                        color: ColorPalette.text_d_80,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 24.h,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        color: Color(0xff1d5be6),
+                        height: 48.h,
+                        width: 0.45.sw,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Get started',
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat SemiBold',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1.75,
+                                ),
+                              ),
+                              SizedBox(width: 12.w),
+                              SvgPicture.asset(
+                                'assets/svg_icons/arrow-right.svg',
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-              wrapWords: false,
-              // presetFontSizes: [72, 64, 56],
-              maxLines: 3,
             ),
-          ),
-          Container(
-            height: 32.h,
-          ),
-          Container(
-            width: 0.8.sw,
-            child: AutoSizeText(
-              "5 continents divided into sectors"
-              "\nallowing the player to receive income"
-              "\nfrom all this",
-              maxLines: 3,
-              style: TextStyle(
-                fontFamily: 'Montserra Medium',
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                height: 1.71,
-                color: ColorPalette.text_d_80,
+            Container(
+              // height: 360,
+              width: 1.sw,
+              child: Image.asset(
+                'assets/images/main1.webp',
+                fit: BoxFit.fill,
               ),
             ),
-          ),
-          Container(
-            height: 24.h,
-          ),
-          Container(
-            color: Color(0xff1d5be6),
-            height: 48.h,
-            width: 165.w,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Get started',
-                  style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.75,
-                  ),
-                ),
-                SizedBox(width: 12.w),
-                SvgPicture.asset(
-                  'assets/svg_icons/arrow-right.svg',
-                  color: Colors.white,
-                )
-              ],
+            Container(
+              // height: 360,
+              width: 1.sw,
+              child: Image.asset(
+                'assets/images/main2.webp',
+                fit: BoxFit.fill,
+              ),
             ),
-          )
-        ],
-      ),
+          ],
+        ),
+        Positioned(
+          top: 236,
+          left: 0.63.sw,
+          child: Container(
+            // height: 360,
+            width: 0.28.sw,
+            child: Image.asset(
+              'assets/images/main3.webp',
+              fit: BoxFit.fill,
+            ),
+          ),
+        ),
+      ],
     ),
   );
 }
@@ -640,10 +669,10 @@ howWork(rightPic, name, pic, description) {
     // height: 380 + 360,
     child: Column(
       //crossAxisAlignment: Cross,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 32, top: 0),
+          padding: EdgeInsets.only(left: 32, top: 0, right: 32),
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -884,7 +913,7 @@ bottomPanel() {
                 Text(
                   'English (United States)',
                   style: TextStyle(
-                    fontFamily: 'Montserra Medium',
+                    fontFamily: 'Montserrat Medium',
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                     height: 1.71,
@@ -905,7 +934,7 @@ bottomPanel() {
                 Text(
                   'LEARN',
                   style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
+                    fontFamily: 'Montserrat SemiBold',
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                     height: 1.71,
@@ -928,7 +957,7 @@ bottomPanel() {
                 Text(
                   'FOLLOW',
                   style: TextStyle(
-                    fontFamily: 'Montserra SemiBold',
+                    fontFamily: 'Montserrat SemiBold',
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                     height: 1.71,
@@ -949,7 +978,7 @@ bottomPanel() {
               Text(
                 '© 2021 TokenLands',
                 style: TextStyle(
-                  fontFamily: 'Montserra Medium',
+                  fontFamily: 'Montserrat Medium',
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                   height: 1.23,
@@ -959,7 +988,7 @@ bottomPanel() {
               Text(
                 'made by roobinium.io',
                 style: TextStyle(
-                  fontFamily: 'Montserra Medium',
+                  fontFamily: 'Montserrat Medium',
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                   height: 1.23,
