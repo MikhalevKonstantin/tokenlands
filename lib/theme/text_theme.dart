@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'color_theme.dart';
 
@@ -6,8 +8,9 @@ class TextThemes {
       fontFamily: 'Thedus',
       fontWeight: FontWeight.bold,
       fontSize: 72,
+      fontStyle: FontStyle.normal,
       height: 0.78,
-      letterSpacing: -2,
+      letterSpacing: -4,
       color: ColorPalette.text_l_80);
 
   static var hedline_1 = TextStyle(

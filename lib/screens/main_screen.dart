@@ -164,7 +164,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             Row(
               children: [
-                if (window.physicalSize.width >= 1280)
+                if (window.physicalSize.width >= 1350)
                   Row(
                     children: [
                       SvgPicture.asset(
@@ -215,12 +215,15 @@ class _MainScreenState extends State<MainScreen> {
     return Container(
       color: ColorPalette.bg_d_n,
       width: 1.sw,
-      height: 0.22.sh + 0.4.sw,
+      // height: 0.22.sh + 0.4.sw,
+      height: 0.91.sh,
       child: Stack(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(
-                left: 0.10.sw, top: 0.11.sh, right: 0.1.sw, bottom: 0.11.sh),
+                left: 0.10.sw,
+                top: 0.11.sh,
+                /*right: 0.1.sw,*/ bottom: 0.11.sh),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,7 +236,7 @@ class _MainScreenState extends State<MainScreen> {
             top: 0.1.sh,
             left: 0.5.sw,
             child: Container(
-              width: 0.4.sw,
+              width: 0.4.sw > 0.8.sh ? 0.8.sh : 0.4.sw,
               // height: 0.62.sh,
               child: Image.asset('assets/images/main1.webp'),
             ),
@@ -305,8 +308,8 @@ class _MainScreenState extends State<MainScreen> {
       children: [
         /// WORLD bly text and autoSize
         Container(
-          height: 0.21.sh,
-          width: 0.4.sw,
+          height: 224, // 0.21.sh,
+          width: 0.39.sw > 540 ? 540 : 0.39.sw,
           child: AutoSizeText.rich(
             TextSpan(
               children: <TextSpan>[
@@ -334,8 +337,8 @@ class _MainScreenState extends State<MainScreen> {
         ),
         Container(height: 0.07.sh),
         Container(
-          height: 0.07.sh,
-          width: 0.34.sw,
+          height: 80, //0.07.sh,
+          width: 0.4.sw,
           child: AutoSizeText(
             "The struggle of five continents \nfor economic and military superiority",
             maxLines: 2,
