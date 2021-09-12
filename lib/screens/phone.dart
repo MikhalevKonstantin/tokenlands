@@ -55,18 +55,70 @@ class _PhoneState extends State<Phone> {
                 children: [
                   info(),
                   Container(
-                    height: 360,
+                    // height: 360,
                     width: 1.sw,
                     child: Image.asset(
-                      'assets/images/image_2t.png',
+                      'assets/images/main1.webp',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  Container(
+                    // height: 360,
+                    width: 1.sw,
+                    child: Image.asset(
+                      'assets/images/main2.webp',
                       fit: BoxFit.fill,
                     ),
                   ),
                   collection(),
+                  Container(
+                    color: ColorPalette.card_l,
+                    child: Column(
+                      children: [
+                        SizedBox(height: 32),
+                        Text(
+                            'token lands'
+                            '\ncollection',
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
+                            style: TextThemes.hedline_2.copyWith(fontSize: 36)),
+                      ],
+                    ),
+                  ),
+                  howWork(true, 'Continents', 'assets/images/Continents.webp',
+                      'The Token Lands world consists of five competing continents divided into NFT sectors. Each continent is unique in its own way and has a certain resource on its territory that is necessary for creating an NFT card "Military Plant". The military and economic advantage of each player will affect the fate of the continent.'),
+                  howWork(
+                      false,
+                      'Land Sectors',
+                      'assets/images/Land Sectors.webp',
+                      'Sectors are NFT cards of different rarity, consisting of slots for staking infrastructure objects, as well as the number of jobs for working. Sector owners will receive a stable profit of 10% from all objects placed on their sector, and from all the work performed. You can buy NFT cards at the presale stage in packs for Wax and in rare cases at an auction for T-coin.'),
+                  howWork(true, 'Working', 'assets/images/Working.webp',
+                      'Every TokenLands player has the opportunity to earn T-coin on any continent in any available sector absolutely for free. Performing the work, you get T-coins, as well as have a chance to get an Evolution NFT card.'),
+                  howWork(false, 'Evolution', 'assets/images/Evolution.webp',
+                      'Evolution is an NFT card of different rarity that increases the profit from Working. When used, the card burns out and adds from 2% to 10% to the work efficiency . It will be possible to purchase this NFT at an auction for T-coin, as well as, in rare cases, get it for free when performing work.'),
+                  howWork(true, 'Stacking', 'assets/images/Stacking.webp',
+                      'Owners of NFT cards from the collection of commercial objects have the opportunity to place them in the free sector on any of the continents and receive T-coin. It is the fastest and easiest way to earn T-coin and become an influential player of Token Lands.'),
+                  howWork(
+                      false,
+                      'Commercial\nobjects',
+                      'assets/images/Comercial objects.webp',
+                      'This is a unique collection of NFT cards of various rarities that allow their owners to receive T-coin by placing them in sectors. The profit from commercial objects is fixed and depends on the rarity of your card. You can buy more powerful NFT cards at the presale stage in packs for Wax, and less powerful ones at the auction for T-coin.'),
+                  howWork(true, 'Auction', 'assets/images/Auction.webp',
+                      'A system for selling NFT cards will be implemented in the game: infrastructure objects, sectors, improving the player\'s characteristics for T-coins, by holding an auction. NFT cards purchased at auction will be less profitable than objects from the presale series.'),
+                  howWork(false, 'Bank', 'assets/images/Bank.webp',
+                      'The game will implement the T-coin deposit function for various periods from a month to a year. The interest rate on the deposit will depend on the term of your deposit. In case of early withdrawal of the deposit, the interest rate under the contract is not charged. Token Lands Bank will draw NFT cards among investors.'),
+                  howWork(true, 'Mining', 'assets/images/Mining.webp',
+                      'Mining mines will be located on each of the five continents for the extraction of NFT resources, which can be used for the construction of the mythical infrastructure object "Military Plant", or sold.'),
+                  howWork(false, 'Mine', 'assets/images/Mine.webp',
+                      'Each continent has its own mine with a unique NFT resource: Metal, brick, glass, fuel and chips. You will need T-coins to extract resources in a mine. The number of resources is limited and is updated daily.'),
+                  howWork(true, 'War Factory', 'assets/images/War factory.webp',
+                      'The War Factory is a Mythical NFT card that can only be obtained by crafting unique NFT resources. The most profitable infrastructure object that brings T-coin, as well as generates NFT cards of a military orientation.'),
+                  howWork(false, 'War', 'assets/images/War.webp',
+                      'The game will implement a war between continents, the winner will be determined by adding the capacities of all NFT cards of the military orientation of each player on the continent. The winning continent is given an increased T-coin production from staking and working for a week. The concept of war is thought out in such a way that the same continent will not be able to win all the time, and players will move to the continent with increased profit.'),
+
+                  // gameplay(),
+                  // getReady(),
                   RoadMap(),
-                  howWork(),
-                  gameplay(),
-                  getReady(),
                   bottomPanel(),
                 ],
               ),
@@ -82,23 +134,41 @@ info() {
   return Container(
     color: ColorPalette.bg_d_n,
     width: 1.sw,
-    height: 312.h,
+    // height: 312,
     child: Padding(
-      padding: EdgeInsets.only(left: 32.w, right: 32.w),
+      padding: EdgeInsets.only(
+          left: 0.09.sw, right: 0.09.sw, top: 0.09.sw, bottom: 0.09.sw),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         //crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 0.8.sw,
-            child: AutoSizeText(
-                "own part of the"
-                "\nunique world on"
-                "\nthe blockchain",
-                maxLines: 3,
-                style:
-                    TextThemes.hedline_3.copyWith(color: ColorPalette.white)),
+            width: 0.82.sw,
+            child: AutoSizeText.rich(
+              TextSpan(
+                children: <TextSpan>[
+                  TextSpan(
+                    text: "ECONOMICAL NFT",
+                    style: TextThemes.hedline_3
+                        .copyWith(color: ColorPalette.white),
+                  ),
+                  TextSpan(
+                    text: " GAME",
+                    style: TextThemes.hedline_3
+                        .copyWith(color: ColorPalette.primary),
+                  ),
+                  TextSpan(
+                    text: " BASED ON \nBLOCKCHAIN WAX",
+                    style: TextThemes.hedline_3
+                        .copyWith(color: ColorPalette.white),
+                  ),
+                ],
+              ),
+              wrapWords: false,
+              // presetFontSizes: [72, 64, 56],
+              maxLines: 3,
+            ),
           ),
           Container(
             height: 32.h,
@@ -156,17 +226,18 @@ info() {
 
 collection() {
   return Container(
-    color: ColorPalette.card_l,
+    color: ColorPalette.bg_l,
     width: 1.sw,
-    height: 800.h,
+    // height: 800.h,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        SizedBox(height: 48),
         TextButton(
           onPressed: () {},
           child: Text(
-            'brave new world',
+            'Invest in new world',
             style: TextThemes.hedline_9.copyWith(color: ColorPalette.primary),
           ),
         ),
@@ -175,30 +246,82 @@ collection() {
             'start your'
             '\ncollection',
             maxLines: 2,
+            textAlign: TextAlign.center,
             style: TextThemes.hedline_2.copyWith(fontSize: 24)),
         SizedBox(height: 24),
-        SingleChildScrollView(
-          child: SizedBox(
-            height: 540.h,
-            child: GridView.count(
-              crossAxisSpacing: 0,
-              shrinkWrap: false,
-              primary: false,
-              //padding: EdgeInsets.only(left: 15.w, right: 15.w),
-              mainAxisSpacing: 16.w,
-              crossAxisCount: 2,
-              children: <Widget>[
-                Image.asset('assets/images/image_3t.png'),
-                Image.asset('assets/images/image_4t.png'),
-                Image.asset('assets/images/image_4t.png'),
-                Image.asset('assets/images/image_3t.png'),
-                Image.asset('assets/images/image_3t.png'),
-                Image.asset('assets/images/image_4t.png'),
-              ],
+        Row(
+          children: [
+            Padding(
+              padding:
+                  EdgeInsets.only(left: 0.09.sw, right: 0.04.sw, bottom: 16),
+              child: Container(
+                  width: 0.39.sw,
+                  child: Image.asset('assets/images/CDrone.webp')),
             ),
-          ),
+            Padding(
+              padding: EdgeInsets.only(right: 0.09.sw, bottom: 16),
+              child: Container(
+                  width: 0.39.sw,
+                  child: Image.asset('assets/images/CBar.webp')),
+            ),
+          ],
         ),
-        //SizedBox(height: 24.h),
+        Row(
+          children: [
+            Padding(
+              padding:
+                  EdgeInsets.only(left: 0.09.sw, right: 0.04.sw, bottom: 16),
+              child: Container(
+                  width: 0.39.sw,
+                  child: Image.asset('assets/images/CGasStation.webp')),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 0.09.sw, bottom: 16),
+              child: Container(
+                  width: 0.39.sw,
+                  child: Image.asset('assets/images/CRobotsShop.webp')),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Padding(
+              padding:
+                  EdgeInsets.only(left: 0.09.sw, right: 0.04.sw, bottom: 16),
+              child: Container(
+                  width: 0.39.sw,
+                  child: Image.asset('assets/images/CStarshipPort.webp')),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 0.09.sw, bottom: 16),
+              child: Container(
+                  width: 0.39.sw,
+                  child: Image.asset('assets/images/CWarFactory.webp')),
+            ),
+          ],
+        ),
+        // SingleChildScrollView(
+        //   child: SizedBox(
+        //     height: 540.h,
+        //     child: GridView.count(
+        //       crossAxisSpacing: 0,
+        //       shrinkWrap: false,
+        //       primary: false,
+        //       //padding: EdgeInsets.only(left: 15.w, right: 15.w),
+        //       mainAxisSpacing: 16.w,
+        //       crossAxisCount: 2,
+        //       children: <Widget>[
+        //         Image.asset('assets/images/CDrone.webp'),
+        //         Image.asset('assets/images/CBar.webp'),
+        //         Image.asset('assets/images/CGasStation.webp'),
+        //         Image.asset('assets/images/CRobotsShop.webp'),
+        //         Image.asset('assets/images/CStarshipPort.webp'),
+        //         Image.asset('assets/images/CWarFactory.webp'),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+        // //SizedBox(height: 24.h),
         Text(
           'TokenLands cards come in'
           '\n6 unique rarities',
@@ -225,6 +348,7 @@ collection() {
             ),
           ),
         ),
+        SizedBox(height: 32.h),
       ],
     ),
   );
@@ -245,17 +369,14 @@ switchWithString() {
               ),
               SizedBox(height: 32),
               Text(
-                'Q1 2019',
+                'Q4 2021',
                 maxLines: 1,
                 style: TextThemes.hedline_4.copyWith(
                     height: 1, fontFamily: 'SpaceMono Bold', fontSize: 36),
               ),
               SizedBox(height: 24),
               Text(
-                'The second phase of the project'
-                '\nintroduces basic gameplay to the'
-                '\ninteractive map. All Cards involved'
-                '\nin the TokenLands game are NFTs.',
+                'Game concept presentation \n1000 NTF cards giveaway \nPresale NFT Packs Series 1 \nPresale NFT Packs Series 2 \n',
                 style: TextThemes.body_2,
               ),
             ],
@@ -275,14 +396,14 @@ switchWithString() {
               ),
               SizedBox(height: 32),
               Text(
-                'Q2 2019',
+                'Q1 2022',
                 maxLines: 1,
                 style: TextThemes.hedline_4.copyWith(
                     height: 1, fontFamily: 'SpaceMono Bold', fontSize: 36),
               ),
               SizedBox(height: 24),
               Text(
-                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                'Game Development: \nWorking \nStacking \nAuction \nBank',
                 style: TextThemes.body_2,
               ),
             ],
@@ -303,14 +424,14 @@ switchWithString() {
               ),
               SizedBox(height: 32),
               Text(
-                'Q3 2019',
+                'Q2 2022',
                 maxLines: 1,
                 style: TextThemes.hedline_4.copyWith(
                     height: 1, fontFamily: 'SpaceMono Bold', fontSize: 36),
               ),
               SizedBox(height: 24),
               Text(
-                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                'Game Development: \nMining \nWar Factory \nCraft \n',
                 style: TextThemes.body_2,
               ),
             ],
@@ -332,14 +453,14 @@ switchWithString() {
               ),
               SizedBox(height: 32),
               Text(
-                'Q4 2019',
+                'Q3 2022',
                 maxLines: 1,
                 style: TextThemes.hedline_4.copyWith(
                     height: 1, fontFamily: 'SpaceMono Bold', fontSize: 36),
               ),
               SizedBox(height: 24),
               Text(
-                'The second phase of the project \nintroduces basic gameplay to the \ninteractive map. All Cards involved \nin the TokenLands game are NFTs.',
+                'Game Development: \nWar \nContinent Bonus \nT-coin Stacking \n',
                 style: TextThemes.body_2,
               ),
             ],
@@ -386,7 +507,7 @@ class _RoadMapState extends State<RoadMap> {
           ),
         ),
         Container(
-            height: 396,
+            // height: 396,
             width: 1.sw,
             color: ColorPalette.card_l,
             child: Column(
@@ -395,7 +516,8 @@ class _RoadMapState extends State<RoadMap> {
               children: [
                 switchWithString(),
                 Padding(
-                  padding: EdgeInsets.only(left: 32, right: 32),
+                  padding:
+                      EdgeInsets.only(left: 32, right: 32, top: 16, bottom: 16),
                   child: Row(
                     children: [
                       GestureDetector(
@@ -404,7 +526,7 @@ class _RoadMapState extends State<RoadMap> {
                             if (index == 3 || index == 2 || index == 4) {
                               index = index - 1;
                             } else if (index == 1) {
-                              index = 4;
+                              index = 1;
                             }
                           });
                         },
@@ -433,7 +555,7 @@ class _RoadMapState extends State<RoadMap> {
                             if (index == 3 || index == 2 || index == 1) {
                               index = index + 1;
                             } else if (index == 4) {
-                              index = 1;
+                              index = 4;
                             }
                           });
                         },
@@ -471,9 +593,18 @@ class _RoadMapState extends State<RoadMap> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                color: ColorPalette.primary,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [
+                    Colors.white,
+                    ColorPalette.primary,
+                    ColorPalette.primary
+                  ],
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(1.0, 0.0),
+                )),
                 height: 8,
-                width: 0.3.sw,
+                width: 0.38.sw,
               ),
               Container(
                 height: 48,
@@ -481,9 +612,18 @@ class _RoadMapState extends State<RoadMap> {
                 color: ColorPalette.secondary,
               ),
               Container(
-                color: ColorPalette.primary,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  colors: [
+                    ColorPalette.primary,
+                    ColorPalette.primary,
+                    Colors.white,
+                  ],
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(1.0, 0.0),
+                )),
                 height: 8,
-                width: 0.3.sw,
+                width: 0.38.sw,
               ),
             ],
           ),
@@ -493,38 +633,26 @@ class _RoadMapState extends State<RoadMap> {
   }
 }
 
-howWork() {
+howWork(rightPic, name, pic, description) {
   return Container(
-    color: Color(0xfffafbfc),
+    color: rightPic ? ColorPalette.card_l : ColorPalette.bg_l,
     width: 1.sw,
-    height: 380 + 360,
+    // height: 380 + 360,
     child: Column(
       //crossAxisAlignment: Cross,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 32, top: 32),
+          padding: EdgeInsets.only(left: 32, top: 0),
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  child: Text(
-                    "how does it work?",
-                    maxLines: 1,
-                    style: TextThemes.hedline_9
-                        .copyWith(color: ColorPalette.primary),
-                  ),
-                ),
-              ),
               Container(
-                height: 12,
+                height: 48,
               ),
-              const Text(
-                'OWN A PART'
-                '\nOF THE COLONY',
+              Text(
+                name,
                 maxLines: 2,
                 style: TextStyle(
                     fontFamily: 'Thedus',
@@ -536,36 +664,32 @@ howWork() {
               ),
               SizedBox(height: 24),
               Text(
-                  "Ownership cards match 1:1 with a unique"
-                  "\npiece of equipment or vehicle on our"
-                  "\ncolony map. The more you own, the higher"
-                  "\non the colony leaderboard you will rank."
-                  "\nYou can find ownership cards inside of"
-                  "\nsupply crates for Mission Two.",
-                  maxLines: 6,
-                  style: TextThemes.body_2),
-              Container(height: 24),
-              Container(
-                child: GestureDetector(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('Open packs',
-                          style: TextThemes.hedline_7
-                              .copyWith(color: ColorPalette.primary)),
-                      SizedBox(width: 12),
-                      SvgPicture.asset('assets/svg_icons/arrow-right.svg')
-                    ],
-                  ),
-                ),
+                description,
+                // maxLines: 6,
+                style: TextThemes.body_2,
               ),
+              Container(height: 24),
+              // Container(
+              //   child: GestureDetector(
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       children: [
+              //         Text('Open packs',
+              //             style: TextThemes.hedline_7
+              //                 .copyWith(color: ColorPalette.primary)),
+              //         SizedBox(width: 12),
+              //         SvgPicture.asset(pic)
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
         Container(
           width: 1.sw,
           child: Image.asset(
-            'assets/images/image_5t.png',
+            pic,
             fit: BoxFit.fill,
           ),
         ),
@@ -737,7 +861,7 @@ getReady() {
 
 bottomPanel() {
   return Container(
-    color: Color(0xfff5f7fa),
+    color: ColorPalette.card_l,
     width: 1.sw,
     height: 360,
     child: Padding(

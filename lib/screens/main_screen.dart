@@ -69,7 +69,7 @@ class _MainScreenState extends State<MainScreen> {
                   howWork(
                       false,
                       'Commercial\nobjects',
-                      'assets/images/Continents.webp',
+                      'assets/images/Comercial objects.webp',
                       'This is a unique collection of NFT cards of various rarities that allow their owners to receive T-coin by placing them in sectors. The profit from commercial objects is fixed and depends on the rarity of your card. You can buy more powerful NFT cards at the presale stage in packs for Wax, and less powerful ones at the auction for T-coin.'),
                   howWork(true, 'Auction', 'assets/images/Auction.webp',
                       'A system for selling NFT cards will be implemented in the game: infrastructure objects, sectors, improving the player\'s characteristics for T-coins, by holding an auction. NFT cards purchased at auction will be less profitable than objects from the presale series.'),
@@ -306,7 +306,6 @@ class _MainScreenState extends State<MainScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        /// WORLD bly text and autoSize
         Container(
           height: 224, // 0.21.sh,
           width: 0.39.sw > 540 ? 540 : 0.39.sw,
@@ -375,7 +374,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 0.02.sh, bottom: 0.05.sh),
-                  child: Text('Token Lands collection',
+                  child: Text('Start your collection',
                       style: TextThemes.hedline_2),
                 ),
                 Row(
