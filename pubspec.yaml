@@ -85,6 +85,11 @@ flutter:
     - family: Thedus
       fonts:
         - asset: fonts/FontsFree-Net-Thedus-WideLight.ttf
+
+    - family: Thedus-WideLight-Bold
+      fonts:
+          - asset: fonts/Thedus-WideLight-Bold.otf
+            weight: 900
     - family: Montserrat Medium
       fonts:
         - asset: fonts/Montserrat-Medium.ttf

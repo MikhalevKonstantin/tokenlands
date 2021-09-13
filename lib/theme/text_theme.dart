@@ -21,7 +21,7 @@ class TextThemes {
       letterSpacing: -2,
       color: ColorPalette.text_l_80);
   static var hedline_2 = TextStyle(
-      fontFamily: 'Thedus',
+      fontFamily: 'Thedus-WideLight-Bold',
       fontWeight: FontWeight.bold,
       fontSize: 36,
       height: 0.67,
