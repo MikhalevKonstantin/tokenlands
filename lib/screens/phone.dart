@@ -22,7 +22,7 @@ class _PhoneState extends State<Phone> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(360, 640),
+      designSize: const Size(720, 640),
       builder: () => MaterialApp(
         home: Scaffold(
           appBar: AppBar(
@@ -61,7 +61,7 @@ class _PhoneState extends State<Phone> {
                     color: ColorPalette.card_l,
                     child: Column(
                       children: [
-                        SizedBox(height: 32),
+                        const SizedBox(height: 32),
                         Text(
                             'token lands'
                             '\ncollection',
@@ -135,30 +135,36 @@ info() {
                 children: [
                   Container(
                     width: 0.82.sw,
-                    height: 72,
+                    height: 80,
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                            text: "2ECONOMICAL NFT",
-                            style: TextThemes.hedline_3
-                                .copyWith(color: ColorPalette.white),
+                            text: "ECONOMICAL NFT",
+                            style: TextThemes.hedline_3.copyWith(
+                              color: ColorPalette.white,
+                              // height: 1.25,
+                            ),
                           ),
                           TextSpan(
                             text: " GAME",
-                            style: TextThemes.hedline_3
-                                .copyWith(color: ColorPalette.primary),
+                            style: TextThemes.hedline_3.copyWith(
+                              color: ColorPalette.primary,
+                              // height: 1.25,
+                            ),
                           ),
                           TextSpan(
                             text: " BASED ON BLOCKCHAIN WAX",
-                            style: TextThemes.hedline_3
-                                .copyWith(color: ColorPalette.white),
+                            style: TextThemes.hedline_3.copyWith(
+                              color: ColorPalette.white,
+                              // height: 1.25,
+                            ),
                           ),
                         ],
                       ),
                       // wrapWords: false,
                       // presetFontSizes: [72, 64, 56],
-                      maxLines: 3,
+                      // maxLines: 3,
                     ),
                   ),
                   Container(
@@ -186,10 +192,10 @@ info() {
                     children: [
                       Container(
                         color: Color(0xff1d5be6),
-                        height: 48.h,
+                        height: 44.h,
                         width: 0.45.sw,
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -204,7 +210,7 @@ info() {
                                   height: 1.75,
                                 ),
                               ),
-                              SizedBox(width: 12.w),
+                              SizedBox(width: 8),
                               SvgPicture.asset(
                                 'assets/svg_icons/arrow-right.svg',
                                 color: Colors.white,
@@ -237,7 +243,7 @@ info() {
           ],
         ),
         Positioned(
-          top: 236,
+          top: 244,
           left: 0.63.sw,
           child: Container(
             // height: 360,
@@ -276,7 +282,7 @@ collection() {
             '\ncollection',
             maxLines: 2,
             textAlign: TextAlign.center,
-            style: TextThemes.hedline_2.copyWith(fontSize: 24)),
+            style: TextThemes.hedline_2.copyWith(fontSize: 36)),
         SizedBox(height: 24),
         Row(
           children: [
@@ -680,7 +686,7 @@ howWork(rightPic, name, pic, description) {
               Container(
                 height: 48,
               ),
-              Text(
+              AutoSizeText(
                 name,
                 maxLines: 2,
                 style: TextStyle(
@@ -976,7 +982,7 @@ bottomPanel() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '© 2021 TokenLands',
+                '© 2022 TokenLands',
                 style: TextStyle(
                   fontFamily: 'Montserrat Medium',
                   fontSize: 13,
@@ -986,7 +992,7 @@ bottomPanel() {
                 ),
               ),
               Text(
-                'made by roobinium.io',
+                'made by roobinium.io2',
                 style: TextStyle(
                   fontFamily: 'Montserrat Medium',
                   fontSize: 13,
